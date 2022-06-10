@@ -55,7 +55,7 @@ const CoachSchedulesView = (props) => {
                     <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
                         <Card.Title as="h4">Schedules</Card.Title>
                         <Button className="yellow-bg m-0">
-                            <span onClick={() => history.push(`/coaches`)}>
+                            <span onClick={() => history.push(`/dietitian`)}>
                                 GoBack
                             </span>
                             <span className="pl-1">

@@ -131,9 +131,9 @@ const routes =  () =>  {
           showInSideBar: data?.userView === true ? true : false ,
         },
         {
-          path: "/coaches",
+          path: "/dietitian",
           layout: Admin,
-          name: "Coaches",
+          name: "Dietitian",
           icon: "nc-icon nc-badge",
           access: data?.coachingView === true ? true : false,
           exact: data?.coachingView === true ? true : false,

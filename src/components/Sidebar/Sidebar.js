@@ -1,25 +1,8 @@
-import React,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import { ENV } from '../../config/config';
-
-// react-bootstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  Card,
-  Collapse,
-  Form,
-  InputGroup,
-  Navbar,
-  Nav,
-  Pagination,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
-// import { useState } from "react";
+import { ENV } from "../../config/config";
+import { Collapse, Nav } from "react-bootstrap";
 
 function Sidebar({ routes, image, background }) {
   // to check for active links and opened collapses
@@ -27,7 +10,7 @@ function Sidebar({ routes, image, background }) {
   // this is for the user collapse
   const [userCollapseState, setUserCollapseState] = React.useState(false);
 
-  const [userAuthenticData, setUserAuthenticData] = useState(null)
+  const [userAuthenticData, setUserAuthenticData] = useState(null);
   // this is for the rest of the collapses
   const [state, setState] = React.useState({});
 
@@ -51,7 +34,7 @@ function Sidebar({ routes, image, background }) {
     });
     return initialState;
   };
-  
+
   // this verifies if any of the collapses should be default opened on a rerender of this component
   // for example, on the refresh of the page,
   // while on the src/submenus/forms/RegularForms.jsx - route /regular-forms
@@ -78,11 +61,7 @@ function Sidebar({ routes, image, background }) {
         var st = {};
         st[prop["state"]] = !state[prop.state];
         return (
-          <Nav.Item
-            className={getCollapseInitialState(prop.submenus) ? "active" : ""}
-            as="li"
-            key={key}
-          >
+          <Nav.Item className={getCollapseInitialState(prop.submenus) ? "active" : ""} as="li" key={key}>
             <Nav.Link
               className={state[prop.state] ? "collapsed" : ""}
               data-toggle="collapse"
@@ -92,12 +71,15 @@ function Sidebar({ routes, image, background }) {
               }}
               aria-expanded={state[prop.state]}
             >
-            <div className="d-flex">
-            <span className="nav-icon-holder "><i className={prop.icon}></i></span>
-              <p className="d-flex">
-               <span className="me-3"> {prop.name}</span> <b className="ms-3 caret"></b>
-              </p>
-            </div>
+              <div className="d-flex">
+                <span className="nav-icon-holder ">
+                  <i className={prop.icon}></i>
+                </span>
+                <p className="d-flex">
+                  <span className="me-3"> {prop.name}</span>{" "}
+                  <b className="ms-3 caret"></b>
+                </p>
+              </div>
             </Nav.Link>
             <Collapse in={state[prop.state]}>
               <div>
@@ -108,12 +90,12 @@ function Sidebar({ routes, image, background }) {
         );
       }
       return (
-        <Nav.Item
-          className={activeRoute(prop.path)}
-          key={key}
-          as="li"
-        >
-          <Nav.Link className="d-flex align-items-center " to={prop.path} as={Link}>
+        <Nav.Item className={activeRoute(prop.path)} key={key} as="li">
+          <Nav.Link
+            className="d-flex align-items-center "
+            to={prop.path}
+            as={Link}
+          >
             {prop.icon ? (
               <>
                 <span className="nav-icon-holder">
@@ -141,12 +123,12 @@ function Sidebar({ routes, image, background }) {
       <div className="sidebar" data-color={background} data-image={image}>
         <div className="sidebar-wrapper">
           <div className="logo">
-            <Link to='/#' className="align-top d-inline-block sidebar-logo">
+            <Link to="/#" className="align-top d-inline-block sidebar-logo">
               <div className="logo-size">
-              <img
-               src={require("assets/img/favicon.svg").default}
-               alt="react-logo"
-             />
+                <img
+                  src={require("assets/img/favicon.png").default}
+                  alt="Dietitian Your Way"
+                />
               </div>
             </Link>
           </div>
@@ -211,13 +193,17 @@ function Sidebar({ routes, image, background }) {
             </div>
           </div> */}
           {/* <Nav as="ul">{createLinks(adminRoutes)}</Nav> */}
-         <Nav className="sidebar-items" as="ul">{createLinks(routes)}</Nav>
+          <Nav className="sidebar-items" as="ul">
+            {createLinks(routes)}
+          </Nav>
         </div>
         <div
           className="sidebar-background"
-          style={{
-            // backgroundImage: "url('" + image + "')",
-          }}
+          style={
+            {
+              // backgroundImage: "url('" + image + "')",
+            }
+          }
         ></div>
       </div>
     </>

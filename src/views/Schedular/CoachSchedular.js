@@ -92,7 +92,7 @@ const CoachSchedular = (props) => {
             left: "5%",
             padding: "0.7em",
             borderRadius: "10px",
-            backgroundColor: "#d32986",
+            backgroundColor: "#198c96",
             outline: "none",
             border: "1px solid #BBB",
             boxShadow: "none",

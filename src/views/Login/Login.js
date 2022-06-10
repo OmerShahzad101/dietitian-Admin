@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { beforeAdmin, login } from '../Admin/Admin.action'
 import FullPageLoader from 'components/FullPageLoader/FullPageLoader';
 import { NavLink } from "react-router-dom";
-import logoLogin from "assets/img/banner-logo.png";
+// import logoLogin from "assets/img/banner-logo.png";
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter, faUserPlus } from '@fortawesome/free-solid-svg-icons';
@@ -73,7 +73,7 @@ function Login(props) {
                                        <div className='logo'>
                                        <img className='logo-login img-fluid'
                                             src={require("assets/img/favicon.svg").default}
-                                            alt="react-logo"
+                                            alt="Dietitian Your Way"
                                         />
                                        </div>
                                     </div>

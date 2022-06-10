@@ -5,17 +5,10 @@ import { Line} from 'react-chartjs-2'
 
 // react-bootstrap components
 import {
-  Badge,
-  Button,
   Card,
-  Navbar,
-  Nav,
-  Table,
   Container,
   Row,
   Col,
-  Form,
-  OverlayTrigger,
   // Tooltip,
 } from "react-bootstrap";
 
@@ -25,7 +18,6 @@ import { ENV } from "../../config/config";
 
 import { listdashboard } from "./Dashboard.action";
 import { useHistory, useLocation } from "react-router";
-import moment from "moment";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faUserPlus } from "@fortawesome/free-solid-svg-icons";
@@ -182,7 +174,7 @@ function Dashboard(props) {
             </span>
           </Col>
           <Col xl="3" sm="6">
-           <span onClick={() => history.push(`/coaches`)}>
+           <span onClick={() => history.push(`/dietitian`)}>
            <Card className="card-stats">
               <Card.Body>
                 <Row className="align-items-center">
@@ -193,7 +185,7 @@ function Dashboard(props) {
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <p className="card-category">Coaches</p>
+                      <p className="card-category">Dietitian</p>
                       <Card.Title as="h4">{boardData?.totalcoach ? boardData.totalcoach: "0"}</Card.Title>
                     </div>
                   </Col>

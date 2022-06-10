@@ -27,7 +27,7 @@
     height: 20px;
     position: absolute;
     border-radius: 50%;
-    background-color: #d32986;
+    background-color: #198c96;
     left: 15%;
     transform-origin: 50%;
     animation: circle .5s alternate infinite ease;

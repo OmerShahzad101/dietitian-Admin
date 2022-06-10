@@ -389,7 +389,7 @@ useEffect(() => {
             <Col md="12">
               <Card className="table-big-boy">
                 <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
-                  <Card.Title as="h4">Coaches</Card.Title>
+                  <Card.Title as="h4">Dietitian</Card.Title>
                   { userAuthenticData?.permissionId?.coachingCreate === true ? 
                     <Button
                     onClick={() => {
