@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/admin/static/css/main.907a7428.chunk.css",
+    "main.js": "/admin/static/js/main.7e09efce.chunk.js",
+    "main.js.map": "/admin/static/js/main.7e09efce.chunk.js.map",
+    "runtime-main.js": "/admin/static/js/runtime-main.4e0dab68.js",
+    "runtime-main.js.map": "/admin/static/js/runtime-main.4e0dab68.js.map",
+    "static/css/2.f69b947c.chunk.css": "/admin/static/css/2.f69b947c.chunk.css",
+    "static/js/2.3d39c6e4.chunk.js": "/admin/static/js/2.3d39c6e4.chunk.js",
+    "static/js/2.3d39c6e4.chunk.js.map": "/admin/static/js/2.3d39c6e4.chunk.js.map",
+    "index.html": "/admin/index.html",
+    "static/css/2.f69b947c.chunk.css.map": "/admin/static/css/2.f69b947c.chunk.css.map",
+    "static/css/main.907a7428.chunk.css.map": "/admin/static/css/main.907a7428.chunk.css.map",
+    "static/js/2.3d39c6e4.chunk.js.LICENSE.txt": "/admin/static/js/2.3d39c6e4.chunk.js.LICENSE.txt",
+    "static/media/banner-logo.750b5816.png": "/admin/static/media/banner-logo.750b5816.png",
+    "static/media/all.min.css": "/admin/static/media/fa-solid-900.f4f93856.woff",
+    "static/media/favicon.svg": "/admin/static/media/favicon.103d38b7.svg",
+    "static/media/featuregaming.a77b94a9.png": "/admin/static/media/featuregaming.a77b94a9.png",
+    "static/media/full-screen-image-2.jpg": "/admin/static/media/full-screen-image-2.e2e1e456.jpg",
+    "static/media/light-bootstrap-dashboard-pro-react.scss?v=2.0.0": "/admin/static/media/nucleo-icons.e8827b8a.svg",
+    "static/media/video-img.jpeg": "/admin/static/media/video-img.d4b1188c.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e0dab68.js",
+    "static/css/2.f69b947c.chunk.css",
+    "static/js/2.3d39c6e4.chunk.js",
+    "static/css/main.907a7428.chunk.css",
+    "static/js/main.7e09efce.chunk.js"
+  ]
+}
