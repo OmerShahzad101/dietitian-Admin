@@ -10,19 +10,20 @@ export const beforeBlog = () => {
     }
 }
 
-export const createBlog = (obj) => dispatch => {
+export const createBlog = (obj ,qs = null) => dispatch => {
 
     dispatch(emptyError());
     const url = `${ENV.url}blog/create`;
+    if (qs) url += `?${qs}`;
     fetch(url, {
         method: "POST",
         headers: {
             'Authorization': ENV.Authorization,
             'x-auth-token': ENV.x_auth_token,
             'x-access-token': (localStorage.getItem('accessToken') ? window.atob(localStorage.getItem('accessToken')) : ''),
-            "Content-Type": "application/json",
+            // "Content-Type": "application/json",
         },
-        body:  JSON.stringify(obj)
+        body:  obj
     }).then(res => res.json()).then(data => {
         if (data.success) {
             toast.success(data.message)
