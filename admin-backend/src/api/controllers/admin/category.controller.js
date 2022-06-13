@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { checkDuplicate } = require("../../../config/errors");
-const Blog = require("../../models/blog.model");
-
+const Category = require("../../models/category.model");
 
 exports.create = async (req, res, next) => {
   try {
@@ -10,18 +9,24 @@ exports.create = async (req, res, next) => {
       const images = req.file.filename;
       payload.image = `/${images}`;
     }
-    
-    console.log(payload.image)
-    const newBlog = new Blog(payload);
-    const blog = await newBlog.save();
-    return res.send({
-      success: true,
-      message: "Blog created successfully",
-      blog,
-    });
+    const validate = await Category.findOne({title: payload.title}).lean();
+    if (!validate) {
+      const newCategory = new Category(payload);
+      const category = await newCategory.save();
+      return res.send({
+        success: true,
+        message: "Category created successfully",
+        category,
+      });
+    } else {
+      return res.send({
+        success: false,
+        message: "Category name already exist",
+      });
+    }
   } catch (error) {
     if (error.code === 11000 || error.code === 11001)
-      checkDuplicate(error, res, "Blog");
+      checkDuplicate(error, res, "Category");
     else return next(error);
   }
 };
@@ -39,9 +44,9 @@ exports.list = async (req, res, next) => {
     page = page !== undefined && page !== "" ? parseInt(page) : 1;
     limit = limit !== undefined && limit !== "" ? parseInt(limit) : 10;
 
-    const total = await Blog.countDocuments(filters);
+    const total = await Category.countDocuments(filters);
 
-    const blog = await Blog.aggregate([
+    const category = await Category.aggregate([
       { $match: filters },
       { $sort: { createdAt: -1 } },
       { $skip: limit * (page - 1) },
@@ -49,9 +54,9 @@ exports.list = async (req, res, next) => {
     ]);
     return res.send({
       success: true,
-      message: "Blog are fetched successfully",
+      message: "Category are fetched successfully",
       data: {
-        blog,
+        category,
         pagination: {
           page,
           limit,
@@ -67,27 +72,27 @@ exports.list = async (req, res, next) => {
 
 exports.get = async (req, res, next) => {
   try {
-    const { blogId } = req.params;
-    if (blogId) {
-      const blog = await Blog.findOne(
-        { _id: mongoose.Types.ObjectId(blogId) },
+    const { categoryId } = req.params;
+    if (categoryId) {
+      const category = await Category.findOne(
+        { _id: mongoose.Types.ObjectId(categoryId) },
         { __v: 0, createdAt: 0, updatedAt: 0 }
       ).lean(true);
 
-      if (blog)
+      if (category)
         return res.json({
           success: true,
-          message: "blog retrieved successfully",
-          blog,
+          message: "Category retrieved successfully",
+          category,
         });
       else
         return res
           .status(400)
-          .send({ success: false, message: "blog not found for given Id" });
+          .send({ success: false, message: "Category not found for given Id" });
     } else
       return res
         .status(400)
-        .send({ success: false, message: "blog Id is required" });
+        .send({ success: false, message: "Category Id is required" });
   } catch (error) {
     return next(error);
   }
@@ -96,47 +101,57 @@ exports.get = async (req, res, next) => {
 exports.edit = async (req, res, next) => {
   try {
     let payload = req.body;
+    const filter = {}
+    if(payload)
     if (req.file) {
       const images = req.file.filename;
       payload.image = `/${images}`;
     }
-
-    const blog = await Blog.findByIdAndUpdate(
+    const validate = await Category.findOne({title: payload.title}).lean()
+    if (!validate) {
+    const category = await Category.findByIdAndUpdate(
       { _id: mongoose.Types.ObjectId(payload._id) },
       { $set: payload },
       { new: true }
     );
     return res.send({
       success: true,
-      message: "Blog updated successfully",
-      blog,
+      message: "Category updated successfully",
+      category,
     });
+  }
+  else{
+    return res.send({
+      success: false,
+      message: "Category name already exist",
+    });
+  }
   } catch (error) {
     if (error.code === 11000 || error.code === 11001)
-      checkDuplicate(error, res, "blog");
+      checkDuplicate(error, res, "category");
     else return next(error);
   }
 };
 
 exports.delete = async (req, res, next) => {
   try {
-    const { blogId } = req.params;
-    if (blogId) {
-      const blog = await Blog.deleteOne({ _id: blogId });
-      if (blog && blog.deletedCount)
+    const { categoryId } = req.params;
+    if (categoryId) {
+      const category = await Category.deleteOne({ _id: categoryId });
+      if (category && category.deletedCount)
         return res.send({
           success: true,
-          message: "blog is  deleted successfully",
-          blogId,
+          message: "Category is  deleted successfully",
+          categoryId,
         });
       else
         return res
           .status(400)
-          .send({ success: false, message: "blog not found for given Id" });
+          .send({ success: false, message: "category not found for given Id" });
     } else
       return res
         .status(400)
-        .send({ success: false, message: "blog Id is required" });
+        .send({ success: false, message: "category Id is required" });
   } catch (error) {
     return next(error);
   }
