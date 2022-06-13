@@ -36,7 +36,7 @@ router.use('/coachrecord', coachRecordRoutes)
 router.use('/usermembership', userMembershipRoutes)
 router.use('/schedular', coachSchedularRoutes)
 router.use('/services', servicesRoutes)
-router.use('/blogs', blogsRoutes)
+router.use('/blog', blogsRoutes)
 router.use('/catagory', catagoryRoutes)
 router.use('/settings', settingsRoutes)
 

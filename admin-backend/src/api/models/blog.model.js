@@ -18,6 +18,9 @@ var Blog = new Schema({
     email:{
         type: String,
     },
+    excerpt:{
+        type: String,
+    },
     category: {
         require: true,
         type: Schema.Types.ObjectId,
