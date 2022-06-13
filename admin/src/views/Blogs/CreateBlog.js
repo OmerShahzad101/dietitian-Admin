@@ -14,7 +14,7 @@ const CreateBlog = (props) => {
         status: true,
         description: '',
         image: '',
-        category: '',
+        category: 'testing',
         });
 
     const [errors, setErrors] = useState({});
