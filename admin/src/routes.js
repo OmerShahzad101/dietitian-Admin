@@ -40,6 +40,9 @@ import PrivateAdmin from 'views/PrivateAdmin/PrivateAdmin'
 import Blog from 'views/Blogs/Blog';
 import CreateBlog from 'views/Blogs/CreateBlog';
 import EditBlog from 'views/Blogs/EditBlog';
+import Category from 'views/Categories/Category';
+import CreateCategory from 'views/Categories/CategoryCreate';
+import EditCategory from 'views/Categories/CategoryEdit';
 import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 import { object } from 'prop-types';
 
@@ -121,13 +124,13 @@ const routes =  () =>  {
       name: "Blog Management",
       state: "openProductssssss",
       icon: "nc-icon nc-badge",
-      //showInSideBar: data?.blogView === false && data?.blogCategoryView === false ? false : true,
+      //showInSideBar: data?.blogView === false && data?.categoryView === false ? false : true,
       showInSideBar: data?.blogView === false ? false : true,
       submenus: [
         {
           path: "/blog",
           layout: Admin,
-          name: "Blog",
+          name: "Blogs",
           icon: "nc-icon nc-badge",
           access: data?.blogView === true ? true : false ,
           exact: data?.blogView === true ? true : false ,
@@ -135,16 +138,16 @@ const routes =  () =>  {
           showInSideBar: data?.blogView === true ? true : false ,
         },
         
-        // {
-        //   path: "/blog-category",
-        //   layout: Admin,
-        //   name: "Blog Category",
-        //   icon: "nc-icon nc-notes",
-        //   access: data?.blogCategoryView === true ? true : false,
-        //   exact: data?.blogCategoryView === true ? true : false,
-        //   component: BlogCategory,
-        //   showInSideBar: data?.blogCategoryView === true ? true : false ,
-        // },
+        {
+          path: "/categories",
+          layout: Admin,
+          name: "Categories",
+          icon: "nc-icon nc-notes",
+          access: data?.categoryView === true ? true : false,
+          exact: data?.categoryView === true ? true : false,
+          component: Category,
+          showInSideBar: data?.categoryView === true ? true : false ,
+        },
       ]
     } ,
     {
@@ -166,6 +169,26 @@ const routes =  () =>  {
       access: data?.contentView === true ? true : false, 
       exact: true,
       component: EditBlog,
+    },
+    {
+      exceptional:true,
+      path: "/category/create",
+      layout: Admin,
+      name: "CREATE CATEGORY",
+      icon: "nc-icon nc-layers-3",
+      access: data?.contentView === true ? true : false, 
+      exact: true,
+      component: CreateCategory,
+    },
+    {
+      exceptional:true,
+      path: "/category/edit/:id",
+      layout: Admin,
+      name: "EDIT CATEGORY",
+      icon: "nc-icon nc-layers-3",
+      access: data?.contentView === true ? true : false, 
+      exact: true,
+      component: EditCategory,
     },
     {
       collapse: true,

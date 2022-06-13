@@ -6,6 +6,7 @@ import emailReducer from '../views/EmailTemplates/EmailTemplates.reducer'
 import memberReducer from '../views/Members/Members.reducer'
 import cmsReducer from '../views/CMS/Cms.reducer'
 import blogReducer from '../views/Blogs/Blog.reducer'
+import categoryReducer from '../views/Categories/Category.reducer'
 import membershipReducer from 'views/Memberships/Memberships.reducer'
 import contactUsQueryReducer from 'views/ContactUsQueries/ContactUsQueries.reducer'
 import permissionsReducer from 'views/Permissions/Permissions.reducer'
@@ -26,6 +27,7 @@ export default combineReducers({
     error: errorReducer,
     cms: cmsReducer,
     blog: blogReducer,
+    category: categoryReducer,
     review: reviewReducer,
     memberships:membershipReducer,
     email: emailReducer,
