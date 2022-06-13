@@ -195,7 +195,7 @@ const Cms = (props) => {
                                         {
                                             userAuthenticData?.permissionId?.contentCreate ? 
                                             <Button className="yellow-bg m-0">
-                                            <span onClick={() => history.push(`/cms/create`)}>
+                                            <span onClick={() => history.push(`/cms/create/`)}>
                                                 CMS
                                             </span>
                                             <span className="pl-1">

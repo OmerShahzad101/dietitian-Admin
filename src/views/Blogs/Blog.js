@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ENV } from '../../config/config';
-import { beforeCms, createCms, listCms, updateCms, deleteCms } from './Cms.action';
+import { beforeBlog, createBlog, listBlog, updateBlog, deleteBlog } from './Blogs.action';
 import FullPageLoader from 'components/FullPageLoader/FullPageLoader';
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
@@ -13,11 +13,11 @@ import moment from "moment";
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter, faPlus } from '@fortawesome/free-solid-svg-icons'
-const Cms = (props) => {
+const Blog = (props) => {
     const history = useHistory();
     const location = useLocation();
     const searchQuery = new URLSearchParams(location.search);
-    const [cmss, setCmss] = useState([])
+    const [blog, setBlog] = useState([])
     const [pagination, setPagination] = useState(null);
     const [loader, setLoader] = useState(true);
     const [delModalCheck, setDelModalCheck] = useState(false);
@@ -31,24 +31,24 @@ const Cms = (props) => {
     });
     useEffect(() => {
         toast.dismiss();
-        props.beforeCms()
+        props.beforeBlog()
         window.scroll(0, 0);
-        props.listCms()
+        props.listBlog()
     }, [])
 
     useEffect(() => {
-        if (props.cms.cmsListAuth) {
-            const { cmsList, pagination } = props.cms
-            setCmss(cmsList)
+        if (props.blog.blogListAuth) {
+            const { blogList, pagination } = props.blog
+            setBlog(blogList)
             setPagination(pagination)
         }
-    }, [props.cms.cmsListAuth, props.cms.cmsList])
+    }, [props.blog.blogListAuth, props.blog.blogList])
 
     useEffect(() => {
-        if (cmss) {
+        if (blog) {
             setLoader(false)
         }
-    }, [cmss])
+    }, [blog])
 
     useEffect(() => {
         if (ENV.getUserKeys("encuse")) {
@@ -82,15 +82,15 @@ const Cms = (props) => {
             params.statusValue = filters.statusValue;    
         setLoader(true);
         const qs = ENV.objectToQueryString({ ...params, page });
-        props.listCms(qs);
+        props.listBlog(qs);
         history.replace({
             pathname: location.pathname, search: ENV.objectToQueryString(params)
         });
     }
 
-    const delCms = () => {
+    const delBlog = () => {
         setDelModalCheck(false)
-        props.deleteCms(delId)
+        props.deleteBlog(delId)
         setLoader(true)
     }
 
@@ -160,7 +160,7 @@ const Cms = (props) => {
 
                                         <Card.Title as="h4">Filter</Card.Title>
                                         {/* <Button className="yellow-bg m-0">
-                                        <span onClick={() => history.push(`/cms/create/`)}>
+                                        <span onClick={() => history.push(`/blog/create/`)}>
                                             CMS
                                         </span>
                                         <span className="pl-1">
@@ -191,12 +191,12 @@ const Cms = (props) => {
                             <Col md="12">
                                 <Card className="table-big-boy">
                                     <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
-                                        <Card.Title as="h4">CMS</Card.Title>
+                                        <Card.Title as="h4">Blogs</Card.Title>
                                         {
                                             userAuthenticData?.permissionId?.contentCreate ? 
                                             <Button className="yellow-bg m-0">
-                                            <span onClick={() => history.push(`/cms/create`)}>
-                                                CMS
+                                            <span onClick={() => history.push(`/blog/create`)}>
+                                                Blog
                                             </span>
                                             <span className="pl-1">
                                                 <FontAwesomeIcon icon={faPlus} />
@@ -219,22 +219,22 @@ const Cms = (props) => {
                                                 </thead>
                                                 <tbody>
                                                     {
-                                                        cmss && cmss.length ?
-                                                            cmss.map((cms, index) => {
+                                                        blog && blog.length ?
+                                                            blog.map((blog, index) => {
                                                                 return (
                                                                     <tr key={index}>
                                                                         <td className="td-start text-center">{pagination && ((pagination.limit * pagination.page) - pagination.limit) + index + 1}</td>
 
                                                                         <td className="td-name">
-                                                                            {cms?.name}
+                                                                            {blog?.name}
                                                                         </td>
                                                                         <td className="td-status">
-                                                                            <span className={`status p-1 ${cms.status ? `bg-success` : `bg-danger`}`}>
-                                                                                {cms.status ? "active" : "inactive"}
+                                                                            <span className={`status p-1 ${blog.status ? `bg-success` : `bg-danger`}`}>
+                                                                                {blog.status ? "active" : "inactive"}
                                                                             </span>
                                                                         </td>
                                                                         <td className="td-name">
-                                                                            <div dangerouslySetInnerHTML={{ __html: cms?.content }} />
+                                                                            <div dangerouslySetInnerHTML={{ __html: blog?.content }} />
                                                                         </td>
                                                                         <td className="td-actions">
                                                                             {
@@ -250,7 +250,7 @@ const Cms = (props) => {
                                                                                     className="btn-link btn-xs"
                                                                                     type="button"
                                                                                     variant="warning"
-                                                                                    onClick={() => history.push(`/cms/edit/${cms._id}`)}>
+                                                                                    onClick={() => history.push(`/blog/edit/${blog._id}`)}>
                                                                                     <i className="fas fa-edit"></i>
                                                                                 </Button>
                                                                                 </OverlayTrigger> : ""
@@ -266,7 +266,7 @@ const Cms = (props) => {
                                                                                         className="btn-link btn-xs"
                                                                                         onClick={() => {
                                                                                             setDelModalCheck(true)
-                                                                                            selDelId(cms._id)
+                                                                                            selDelId(blog._id)
                                                                                         }}
                                                                                         variant="danger"
                                                                                     >
@@ -310,13 +310,13 @@ const Cms = (props) => {
             {
                 delModalCheck && <Modal show={delModalCheck} onHide={() => setDelModalCheck(false)}>
                     <Modal.Header closeButton>
-                        <Modal.Title className='yellow-color delete-tag mb-5'>Are you sure you want to delete this cms?</Modal.Title>
+                        <Modal.Title className='yellow-color delete-tag mb-5'>Are you sure you want to delete this blog?</Modal.Title>
                     </Modal.Header>
                     <Modal.Footer className='d-flex justify-content-center'>
                         <Button className='save-btn mr-3' variant="danger" onClick={() => setDelModalCheck(false)}>
                             No
                         </Button>
-                        <Button variant="primary" onClick={delCms} className="yellow-bg save-btn">
+                        <Button variant="primary" onClick={delBlog} className="yellow-bg save-btn">
                             Yes
                         </Button>
                     </Modal.Footer>
@@ -327,8 +327,8 @@ const Cms = (props) => {
 }
 
 const mapStateToProps = state => ({
-    cms: state.cms,
+    blog: state.blog,
     error: state.error
 })
 
-export default connect(mapStateToProps, { beforeCms, createCms, listCms, updateCms, deleteCms })(Cms)
+export default connect(mapStateToProps, { beforeBlog, createBlog, listBlog, updateBlog, deleteBlog })(Blog)

@@ -37,6 +37,9 @@ import CoachMembershipRecord from 'views/CoachMembershipRecord/CoachMembershipRe
 import CoachMembershipEditRecord from 'views/CoachMembershipRecord/CoachMembershipRecordEdit'
 import Settings from 'views/Settings/Settings'
 import PrivateAdmin from 'views/PrivateAdmin/PrivateAdmin'
+import Blog from 'views/Blogs/Blog';
+import CreateBlog from 'views/Blogs/CreateBlog';
+import EditBlog from 'views/Blogs/EditBlog';
 import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 import { object } from 'prop-types';
 
@@ -113,6 +116,57 @@ const routes =  () =>  {
         },
       ]
     } ,
+    {
+      collapse: true,
+      name: "Blog Management",
+      state: "openProductssssss",
+      icon: "nc-icon nc-badge",
+      //showInSideBar: data?.blogView === false && data?.blogCategoryView === false ? false : true,
+      showInSideBar: data?.blogView === false ? false : true,
+      submenus: [
+        {
+          path: "/blog",
+          layout: Admin,
+          name: "Blog",
+          icon: "nc-icon nc-badge",
+          access: data?.blogView === true ? true : false ,
+          exact: data?.blogView === true ? true : false ,
+          component: Blog,
+          showInSideBar: data?.blogView === true ? true : false ,
+        },
+        
+        // {
+        //   path: "/blog-category",
+        //   layout: Admin,
+        //   name: "Blog Category",
+        //   icon: "nc-icon nc-notes",
+        //   access: data?.blogCategoryView === true ? true : false,
+        //   exact: data?.blogCategoryView === true ? true : false,
+        //   component: BlogCategory,
+        //   showInSideBar: data?.blogCategoryView === true ? true : false ,
+        // },
+      ]
+    } ,
+    {
+      exceptional:true,
+      path: "/blog/create",
+      layout: Admin,
+      name: "CREATE BLOG",
+      icon: "nc-icon nc-layers-3",
+      access: data?.contentView === true ? true : false, 
+      exact: true,
+      component: CreateBlog,
+    },
+    {
+      exceptional:true,
+      path: "/blog/edit/:id",
+      layout: Admin,
+      name: "EDIT BLOG",
+      icon: "nc-icon nc-layers-3",
+      access: data?.contentView === true ? true : false, 
+      exact: true,
+      component: EditBlog,
+    },
     {
       collapse: true,
       name: "Users",

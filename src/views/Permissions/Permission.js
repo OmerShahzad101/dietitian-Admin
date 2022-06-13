@@ -91,6 +91,11 @@ const Permissions = (props) => {
     permissionsView: false,
     permissionsEdit: false,
     permissionsDelete: false,
+    // blogs
+    blogCreate: false,
+    blogView: false,
+    blogEdit: false,
+    blogDelete: false,
     //role
     roleCreate: false,
     roleView: false,
