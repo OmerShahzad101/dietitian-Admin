@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Category = require('./catagory.model');
+const Category = require('./category.model');
 // Setup schema
 var Blog = new Schema({
     

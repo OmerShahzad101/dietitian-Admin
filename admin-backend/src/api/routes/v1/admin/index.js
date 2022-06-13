@@ -15,7 +15,7 @@ const coachSchedularRoutes = require('./coachSchedular.route')
 const servicesRoutes = require('./services.route')
 const coachRecordRoutes = require('./coachRecord.route')
 const blogsRoutes = require('./blog.route')
-const catagoryRoutes = require('./catagory.route')
+const categoryRoutes = require('./category.route')
 const settingsRoutes = require('./settings.route')
 const router = express.Router()
 /**
@@ -37,7 +37,7 @@ router.use('/usermembership', userMembershipRoutes)
 router.use('/schedular', coachSchedularRoutes)
 router.use('/services', servicesRoutes)
 router.use('/blog', blogsRoutes)
-router.use('/catagory', catagoryRoutes)
+router.use('/category', categoryRoutes)
 router.use('/settings', settingsRoutes)
 
 module.exports = router
