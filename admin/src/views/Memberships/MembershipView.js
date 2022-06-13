@@ -1,0 +1,181 @@
+import React, { useState, useEffect } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Button, Container, Form } from 'react-bootstrap';
+import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
+import FullPageLoader from 'components/FullPageLoader/FullPageLoader';
+import { beforeMembership, getMembership } from './Memberships.action'
+import { toast } from 'react-toastify';
+import { Row, Col } from "react-bootstrap";
+
+const ViewMembership = (props) => {
+    let id = props.match.params.id;
+
+    const [editUserMembership, setEditUserMembership] = useState(null);
+    const [loader, setLoader] = useState(true);
+    const [errors, setErrors] = useState({});
+    const history = useHistory();
+
+    useEffect(() => {
+        toast.dismiss();
+        window.scroll(0, 0);
+        props.getMembership(id);
+    }, [])
+
+    useEffect(async () => {
+        if (props.memberships.getMembershipAuth) {
+            let membership = await props.memberships.getMembership;
+            setEditUserMembership(membership)
+            setLoader(false)
+        }
+    }, [props.memberships.getMembershipAuth])
+
+
+    const submitEdit = (e) => {
+        e.preventDefault();
+        history.push('/membermembership')
+    }
+
+    return (
+        <Container>
+            {
+                loader ? <FullPageLoader /> :
+                    <Form onSubmit={(e) => { submitEdit(e) }}>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Title</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Title" name="title" value={editUserMembership?.title} disabled />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Description</Form.Label>
+                            <CKEditor disabled
+                                editor={ClassicEditor}
+                                data={editUserMembership?.description}
+                                description={editUserMembership?.description}
+                                onReady={editor => {
+                                    // You can store the "editor" and use when it is needed.
+                                    // console.log( 'Editor is ready to use!', editor );
+                                    const data = editor.getData();
+                                    // console.log('DATA: ', data)
+                                    setEditUserMembership({ ...editUserMembership, description: data })
+                                }}
+                               
+                                onBlur={(event, editor) => {
+                                    // console.log( 'Blur.', editor );
+                                }}
+                                onFocus={(event, editor) => {
+                                    // console.log( 'Focus.', editor );
+                                }}
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Group Coachings</Form.Label>
+                            <Form.Control type="number" placeholder="No of times" min="0" name="groupCoaching" value={editUserMembership?.groupCoaching} disabled />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Personal Coach Chats</Form.Label>
+                            <Form.Control type="number" placeholder="No of times" min="0" name="personalCoachChat" value={editUserMembership?.personalCoachChat} disabled/>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Micro-Habit Lifestyle Prescriptions®</Form.Label>
+                            <Form.Control type="number" placeholder="No of times" min="0" name="microHabitLifestyle" value={editUserMembership?.microHabitLifestyle} disabled />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Personal Root-Cause Health Coaching Consultations</Form.Label>
+                            <Form.Control type="number" placeholder="No of times" min="0" name="rootCauseHealthCoaching" value={editUserMembership?.rootCauseHealthCoaching} disabled />
+                        </Form.Group>
+           
+                        <Form.Group className="mb-3">
+                        <Form.Label className='mb-3'>Membership management</Form.Label>
+                            <Row>
+                                <div className='chbox-div'>
+                                    <Form.Label>Health, Longevity & Wealth educational content included</Form.Label>
+                                    <input type="checkbox" checked={editUserMembership?.healthyWealthy ? true : false}
+                                    disabled/>
+                                </div>
+                            </Row>
+                            <Row>
+                                <div className='chbox-div'>
+                                    <Form.Label>For Coach</Form.Label>
+                                    <input type="checkbox" checked={editUserMembership?.forCoach ? true : false}
+                                    disabled />
+                                </div>
+                            </Row>
+                            <Row>
+                                <div className='chbox-div'>
+                                    <Form.Label>Personal Package</Form.Label>
+                                    <input type="checkbox" checked={editUserMembership?.personalPackage ? true : false}
+                                    disabled />
+                                </div>
+                            </Row>
+                            <Row>
+                                <div className='chbox-div'>
+                                    <Form.Label>Family Package</Form.Label>
+                                    <input type="checkbox" checked={editUserMembership?.familyPackage ? true : false}
+                                    disabled/>
+                                </div>
+                            </Row>
+                            <Row>
+                                <div className='chbox-div'>
+                                    <Form.Label>Teams Package</Form.Label>
+                                    <input type="checkbox" checked={editUserMembership?.teamsPackage ? true : false}
+                                    disabled/>
+                                </div>
+                            </Row>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Price (USD)</Form.Label>
+                            <Form.Control type="number" placeholder="USD" min="0" name="price In USD" value={editUserMembership?.priceInUSD} disabled />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Price (RxHEAL)</Form.Label>
+                            <Form.Control type="number" placeholder="RxHEAL" min="0" name="price In RxHEAL" value={editUserMembership?.priceInCrypto} disabled/>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Consultation Extention Cost (USD Per minute)</Form.Label>
+                            <Form.Control type="number" placeholder="USD" min="0" name="price In USD" value={editUserMembership?.consultationExtentionCostUSD} disabled/>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Consultation Extention Cost (RxHEAL Per minute)</Form.Label>
+                            <Form.Control type="number" placeholder="RxHEAL" min="0" name="price In RxHEAL" value={editUserMembership?.consultationExtentionCostCrypto} disabled/>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label className='ip-lable'>Session Extend Price</Form.Label>
+                            <Form.Control type="number" name="session extend price" value={editUserMembership?.sessionExtendPrice ? editUserMembership?.sessionExtendPrice : "N/A"} disabled/>
+                        </Form.Group>
+
+                        <Form.Group>
+                        <Form.Label className="mr-4">Membership Period</Form.Label>
+                            <Form.Control type="number" placeholder="Enter Months..." min="1" name="membership Period" value={editUserMembership?.period} disabled />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Consultations</Form.Label>
+                                <select className='form-control form-select' disabled >
+                                    <option value={1} selected={editUserMembership?.consultations === 1 ? 'selected' : ''}>1</option>
+                                    <option value={2} selected={editUserMembership?.consultations === 2 ? 'selected' : ''}>2</option>
+                                    <option value={3} selected={editUserMembership?.consultations === 3 ? 'selected' : ''}>3</option>
+                                    <option value={4} selected={editUserMembership?.consultations === 4 ? 'selected' : ''}>4</option>
+                                    <option value={5} selected={editUserMembership?.consultations === 5 ? 'selected' : ''}>5</option>
+                                </select>
+                        </Form.Group>
+                        <Form.Group className="switch-wrapper mb-3">
+                            <span className="d-block mb-2">Status</span>
+                            <label style={{margin:0}} className="switch m-0">
+                                <input type="checkbox" name="status" checked={editUserMembership?.status ? true : false} disabled />
+                                <span className="slider round"></span>
+                            </label>
+                        </Form.Group>
+                        <Button variant="primary" type="submit" className="yellow-bg">
+                            Go back
+                        </Button>
+                    </Form>}
+        </Container>
+    )
+}
+
+const mapStateToProps = state => ({
+    memberships: state.memberships,
+    error: state.error
+})
+
+export default connect(mapStateToProps, { beforeMembership, getMembership })(ViewMembership)
