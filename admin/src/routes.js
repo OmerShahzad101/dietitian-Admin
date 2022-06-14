@@ -139,7 +139,7 @@ const routes =  () =>  {
         },
         
         {
-          path: "/categories",
+          path: "/category",
           layout: Admin,
           name: "Categories",
           icon: "nc-icon nc-notes",
@@ -172,16 +172,6 @@ const routes =  () =>  {
     },
     {
       exceptional:true,
-      path: "/category/create",
-      layout: Admin,
-      name: "CREATE CATEGORY",
-      icon: "nc-icon nc-layers-3",
-      access: data?.categoryCreate === true ? true : false, 
-      exact: true,
-      component: CreateCategory,
-    },
-    {
-      exceptional:true,
       path: "/category/edit/:id",
       layout: Admin,
       name: "EDIT CATEGORY",
@@ -189,6 +179,16 @@ const routes =  () =>  {
       access: data?.categoryEdit === true ? true : false, 
       exact: true,
       component: EditCategory,
+    },
+    {
+      exceptional:true,
+      path: "/category/create",
+      layout: Admin,
+      name: "CREATE CATEGORY",
+      icon: "nc-icon nc-layers-3",
+      access: data?.categoryCreate === true ? true : false, 
+      exact: true,
+      component: CreateCategory,
     },
     {
       collapse: true,
