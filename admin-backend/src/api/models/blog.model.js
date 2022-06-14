@@ -25,7 +25,10 @@ var Blog = new Schema({
         require: true,
         type: Schema.Types.ObjectId,
         ref: 'Category', 
-    }
+    },
+    status:{
+        Boolean: false,
+    },
 },
     {
         timestamps: true,
