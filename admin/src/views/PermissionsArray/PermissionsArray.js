@@ -51,7 +51,7 @@ const PermissionsArray =  () =>  {
         return newFlattenList;
     }
     const output = flattenList(filtered)
-    console.log(`permissions array output is ==>`, output)
+    //console.log(`permissions array output is ==>`, output)
     return output;
   }
   export default PermissionsArray;

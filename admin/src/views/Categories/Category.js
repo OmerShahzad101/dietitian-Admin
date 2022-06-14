@@ -177,7 +177,7 @@ const Category = (props) => {
                                        {
                                            userAuthenticData?.permissionId?.categoryCreate === true ?
                                             <Button className="yellow-bg m-0">
-                                            <span onClick={() => history.push(`/category/create/`)}>
+                                            <span onClick={() => history.push(`/category/create`)}>
                                              Category
                                             </span>
                                             <span className="pl-1">
@@ -207,20 +207,20 @@ const Category = (props) => {
 
                                                                 <td className="td-start text-center">{pagination && ((pagination.limit * pagination.page) - pagination.limit) + index + 1}</td>
                                                                 <td className="td-image">
-                                                                <div className="user-image">
-                                                                    <img
-                                                                        src= { !data.logo ? imagePlaceholder : `${ENV.Backend_Img_Url}${data.logo}` }
-                                                                        alt="userImage"
-                                                                        className="img-fluid"
-                                                                    >
-                                                                    </img>
-                                                                </div>
+                                                                    <div className="user-image">
+                                                                        <img
+                                                                            src= { !data.image ? imagePlaceholder : `${ENV.Backend_Img_Url}${data.image}` }
+                                                                            alt="userImage"
+                                                                            className="img-fluid"
+                                                                        >
+                                                                        </img>
+                                                                    </div>
                                                                 </td>
                                                                 <td className="td-name">
-                                                                    {data?.name}
+                                                                    {data?.title}
                                                                 </td>
                                                                 <td className="td-name">
-                                                                    <div dangerouslySetInnerHTML={{ __html: data?.description }} />
+                                                                    {data?.email}
                                                                 </td>
                                                                 <td className="td-status">
                                                                     <span className={`status p-1 ${data.status ? `bg-success` : `bg-danger`}`}>
@@ -241,7 +241,7 @@ const Category = (props) => {
                                                                             className="btn-link btn-xs"
                                                                             type="button"
                                                                             variant="warning"
-                                                                            onClick={() => history.push(`/category/edit/${data._id}`)}>
+                                                                            onClick={() => history.push(`category/edit/${data._id}`)}>
                                                                             <i className="fas fa-edit"></i>
                                                                         </Button>
                                                                         </OverlayTrigger> : ""}

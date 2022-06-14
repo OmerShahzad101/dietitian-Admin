@@ -32,12 +32,12 @@ const CategoryEdit = (props) => {
     }, [])  
 
     useEffect( () => {
-        if (props.services.getAuth) {
-            let {getCategory} =  props?.services;
+        if (props.category.getAuth) {
+            let {getCategory} =  props?.category;
             setEditCategory(getCategory)
             setLoader(false)
         }
-    }, [props.services.getAuth])
+    }, [props.category.getAuth])
 
   const checkMimeType = (event) => {
     //getting file object
@@ -68,27 +68,24 @@ const CategoryEdit = (props) => {
   const EditPhotoChange = (event) => {
     const file = event.target.files;
     if (file.length === 0) {
-        setEditCategory({ ...editCategory, logo: '' });
+        setEditCategory({ ...editCategory, image: '' });
     } else if (checkMimeType(event)) {
       let reader = new FileReader();
       reader.readAsDataURL(file[0])
       reader.onloadend = function () {
         setPic({ image: reader.result })
       }
-      setEditCategory({ ...editCategory, logo: file[0] })
+      setEditCategory({ ...editCategory, image: file[0] })
     } else {
-        setEditCategory({ ...editCategory, logo: '' });
+        setEditCategory({ ...editCategory, image: '' });
       toast.error("Unsuccessful in choosing image file");
     }
   };
 
   const submitEdit = (e) => {
     e.preventDefault();
-    if(editCategory.name === ''){
-        setErrors({...errors, name : 'Name is required'})
-    }
-    else if(editCategory.description === ''){
-        setErrors({...errors, description : 'description is required'})
+    if(editCategory.title === ''){
+        setErrors({...errors, title : 'Title is required'})
     }
     else{
         let formData = new FormData()
@@ -97,7 +94,7 @@ const CategoryEdit = (props) => {
         props.updateCategory(formData);
         setLoader(false);
         console.log('testttttt');
-        history.push('/services')
+        history.push('/categories')
     }
   }
   return (
@@ -105,8 +102,8 @@ const CategoryEdit = (props) => {
         {loader ? <FullPageLoader /> : <Form  onSubmit={(e) => { submitEdit (e) }}>
             <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter name" name="name" value={editCategory?.name} onChange={(e) => { setEditCategory({ ...editCategory, name: e.target.value }) }} />
-                <span style={{ color: "red" }}>{editCategory.name === "" ? errors["name"] : ""}</span>
+                <Form.Control type="text" placeholder="Enter title" name="title" value={editCategory?.title} onChange={(e) => { setEditCategory({ ...editCategory, title: e.target.value }) }} />
+                <span style={{ color: "red" }}>{editCategory.title === "" ? errors["title"] : ""}</span>
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -121,7 +118,7 @@ const CategoryEdit = (props) => {
                 <Form.Label>Image</Form.Label>
                 <div className="mb-2">
                 <img
-                 src={editCategory?.logo ? typeof editCategory?.logo === 'string' ? `${ENV.Backend_Img_Url}${editCategory?.logo}` : URL.createObjectURL(editCategory?.logo) : imagePlaceholder}
+                 src={editCategory?.image ? typeof editCategory?.image === 'string' ? `${ENV.Backend_Img_Url}${editCategory?.image}` : URL.createObjectURL(editCategory?.logo) : imagePlaceholder}
                   style={{ height: 100, width: 100, objectFit: "contain" }}
                 />
                 </div>
@@ -146,7 +143,7 @@ const CategoryEdit = (props) => {
   )
 }
 const mapStateToProps = state => ({
-    services: state.services,
+    category: state.category,
     error: state.error
 })
 

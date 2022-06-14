@@ -9,6 +9,7 @@ import { beforeBlog, getBlog, updateBlog } from './Blogs.action';
 import { toast } from 'react-toastify';
 
 const EditBlog = (props) => {
+    console.log(props,"props")
     let id = props.match.params.id;
     const [editBlog, setEditBlog] = useState(null);
     const [loader, setLoader] = useState(true);
@@ -16,6 +17,7 @@ const EditBlog = (props) => {
     const history = useHistory();
     
     useEffect(() => {
+        console.log(props,"props")
         toast.dismiss();
         window.scroll(0, 0);
         props.getBlog(id);
@@ -28,6 +30,7 @@ const EditBlog = (props) => {
     // }, [editBlog.status])
 
     useEffect(async () => {
+        console.log(props,"props")
         if (props.blog.getAuth) {
             let blog = await props.blog.getBlog;
             setEditBlog(blog)
@@ -94,7 +97,7 @@ const EditBlog = (props) => {
                             <span style={{ color: "red" }}>{errors["content"]}</span>
                         </Form.Group>
                         <Button variant="primary" type="submit" className="yellow-bg">
-                            Edit CMS
+                            Edit Blog
                         </Button>
                     </Form>}
         </Container>

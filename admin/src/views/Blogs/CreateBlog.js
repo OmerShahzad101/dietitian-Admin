@@ -8,13 +8,14 @@ import { createBlog } from './Blogs.action';
 import userDefaultImg from "../../assets/img/placeholder.png";
 
 const CreateBlog = (props) => {
+  const [loader, setLoader] = useState(true);
     const [addBlog, setAddBlog] = useState({
         title:'',
         excerpt: '',
         status: true,
         description: '',
         image: '',
-        category: 'testing',
+        category: '62a755725412b42ef08dc090',
         });
 
     const [errors, setErrors] = useState({});

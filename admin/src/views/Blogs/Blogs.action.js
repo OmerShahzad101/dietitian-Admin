@@ -104,9 +104,9 @@ export const listBlog= (qs = null) => dispatch => {
     })
 };
 
-export const getBlog = (cmsId = '') => dispatch => {
+export const getBlog = (blogId = '') => dispatch => {
     dispatch(emptyError());
-    let url = `${ENV.url}blog/get/${cmsId}`;
+    let url = `${ENV.url}blog/get/${blogId}`;
 
     fetch(url, {
         method: 'GET',

@@ -17,7 +17,7 @@ const CategoryCreate = (props) => {
   const [addCategory, setAddCategory] = useState({
       title:'',
       status: true,
-      description: '',
+      email: '',
       image:""
   });
   const [pic, setPic] = useState({

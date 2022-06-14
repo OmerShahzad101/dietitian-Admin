@@ -193,7 +193,7 @@ const Blog = (props) => {
                                     <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
                                         <Card.Title as="h4">Blogs</Card.Title>
                                         {
-                                            userAuthenticData?.permissionId?.contentCreate ? 
+                                            userAuthenticData?.permissionId?.blogCreate ? 
                                             <Button className="yellow-bg m-0">
                                             <span onClick={() => history.push(`/blog/create`)}>
                                                 Blog
@@ -212,9 +212,9 @@ const Blog = (props) => {
                                                     <tr>
                                                         <th className="text-center td-start">#</th>
                                                         <th className="td-name">NAME</th>
-                                                        <th className="td-status">Status</th>
-                                                        <th className="td-name">CONTENT</th>
-                                                        {userAuthenticData?.permissionId?.contentEdit||userAuthenticData?.permissionId?.contentDelete ?<th className="td-actions">Action</th> : ""}
+                                                        <th className="td-status">Excerpt</th>
+                                                        <th className="td-name">Status</th>
+                                                        {userAuthenticData?.permissionId?.blogEdit||userAuthenticData?.permissionId?.blogDelete ?<th className="td-actions">Action</th> : ""}
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -226,19 +226,19 @@ const Blog = (props) => {
                                                                         <td className="td-start text-center">{pagination && ((pagination.limit * pagination.page) - pagination.limit) + index + 1}</td>
 
                                                                         <td className="td-name">
-                                                                            {blog?.name}
+                                                                            {blog?.title}
+                                                                        </td>
+                                                                        <td className="td-name">
+                                                                            {blog?.excerpt}
                                                                         </td>
                                                                         <td className="td-status">
                                                                             <span className={`status p-1 ${blog.status ? `bg-success` : `bg-danger`}`}>
                                                                                 {blog.status ? "active" : "inactive"}
                                                                             </span>
                                                                         </td>
-                                                                        <td className="td-name">
-                                                                            <div dangerouslySetInnerHTML={{ __html: blog?.content }} />
-                                                                        </td>
                                                                         <td className="td-actions">
                                                                             {
-                                                                                userAuthenticData?.permissionId?.contentEdit === true ? 
+                                                                                userAuthenticData?.permissionId?.blogEdit === true ? 
                                                                                 <OverlayTrigger
                                                                                 overlay={
                                                                                     <Tooltip id="tooltip-436082023">
@@ -256,7 +256,7 @@ const Blog = (props) => {
                                                                                 </OverlayTrigger> : ""
                                                                             }
                                                                                 {
-                                                                                    userAuthenticData?.permissionId?.contentDelete === true ? 
+                                                                                    userAuthenticData?.permissionId?.blogDelete === true ? 
                                                                                     <OverlayTrigger
                                                                                     overlay={
                                                                                         <Tooltip id="tooltip-481441726">Remove</Tooltip>

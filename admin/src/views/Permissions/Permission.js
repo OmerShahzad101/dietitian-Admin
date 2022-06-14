@@ -394,6 +394,14 @@ const Permissions = (props) => {
                                     {data?.coachMembershipRecordCreate ? <span className='lable-info'> Coach Membership Record Create</span> : ""}
                                     {data?.coachMembershipRecordView ? <span className='lable-info'> Coach Membership Record View</span> : ""}
                                     {data?.coachMembershipRecordEdit ? <span className='lable-info'> User Membership Record Edit</span> : ""}
+                                    {data?.blogCreate ? <span className='lable-info'> blog Create</span>: ""}
+                                    {data?.blogView ? <span className='lable-info'> blog View</span> : ""}
+                                    {data?.blogEdit ?  <span className='lable-info'> blog Edit  </span> : ""}
+                                    {data?.blogDelete ? <span className='lable-info'> blog Delete</span> : ""}
+                                    {data?.categoryCreate ? <span className='lable-info'> category Create</span>: ""}
+                                    {data?.categoryView ? <span className='lable-info'> category View</span> : ""}
+                                    {data?.categoryEdit ?  <span className='lable-info'> category Edit  </span> : ""}
+                                    {data?.categoryDelete ? <span className='lable-info'> category Delete</span> : ""}
                                     {data?.servicesCreate ? <span className='lable-info'> Services Create</span>: ""}
                                     {data?.servicesView ? <span className='lable-info'> Services View</span> : ""}
                                     {data?.servicesEdit ?  <span className='lable-info'> Services Edit  </span> : ""}
@@ -711,6 +719,51 @@ const Permissions = (props) => {
                   />
                 </div>
               </Form.Group>
+              {/* //BLOG */}
+              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                <Form.Label>BLOG Management</Form.Label>
+                <div >
+                  <Form.Label>Create</Form.Label>
+                  <input type="checkbox" checked={permissions.blogCreate ? true : false}
+                    onChange={(e) => { setpermissions({ ...permissions, blogCreate: e.target.checked }) }}
+                  />
+                  <Form.Label>View</Form.Label>
+                  <input type="checkbox" checked={permissions.blogView ? true : false}
+                    onChange={(e) => { setpermissions({ ...permissions, blogView: e.target.checked }) }}
+                  />
+                  <Form.Label>Edit</Form.Label>
+                  <input type="checkbox" checked={permissions.blogEdit ? true : false}
+                    onChange={(e) => { setpermissions({ ...permissions, blogEdit: e.target.checked }) }}
+                  />
+                  <Form.Label>Delete</Form.Label>
+                  <input type="checkbox" checked={permissions.blogDelete ? true : false}
+                    onChange={(e) => { setpermissions({ ...permissions, blogDelete: e.target.checked }) }}
+                  />
+                </div>
+              </Form.Group>
+               {/* //CATEGORIES */}
+              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                <Form.Label>Categories Management</Form.Label>
+                <div >
+                  <Form.Label>Create</Form.Label>
+                  <input type="checkbox" checked={permissions.categoryCreate ? true : false}
+                    onChange={(e) => { setpermissions({ ...permissions, categoryCreate: e.target.checked }) }}
+                  />
+                  <Form.Label>View</Form.Label>
+                  <input type="checkbox" checked={permissions.categoryView ? true : false}
+                    onChange={(e) => { setpermissions({ ...permissions, categoryView: e.target.checked }) }}
+                  />
+                  <Form.Label>Edit</Form.Label>
+                  <input type="checkbox" checked={permissions.categoryEdit ? true : false}
+                    onChange={(e) => { setpermissions({ ...permissions, categoryEdit: e.target.checked }) }}
+                  />
+                  <Form.Label>Delete</Form.Label>
+                  <input type="checkbox" checked={permissions.categoryDelete ? true : false}
+                    onChange={(e) => { setpermissions({ ...permissions, categoryDelete: e.target.checked }) }}
+                  />
+                </div>
+              </Form.Group>
+{/* //SERVICES */}
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
               <Form.Label>Services Management</Form.Label>
                 <div >
@@ -1047,7 +1100,52 @@ const Permissions = (props) => {
                       onChange={(e) => { seteditPermissions({ ...editPermissions, coachMembershipRecordEdit: e.target.checked }); }}
                     />
                   </div>
+              
                 </Form.Group>
+                      {/* //BLOG */}
+              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                <Form.Label>BLOG Management</Form.Label>
+                <div >
+                  <Form.Label>Create</Form.Label>
+                  <input type="checkbox" checked={editPermissions.blogCreate ? true : false}
+                    onChange={(e) => { seteditPermissions({ ...editPermissions, blogCreate: e.target.checked }) }}
+                  />
+                  <Form.Label>View</Form.Label>
+                  <input type="checkbox" checked={editPermissions.blogView ? true : false}
+                    onChange={(e) => { seteditPermissions({ ...editPermissions, blogView: e.target.checked }) }}
+                  />
+                  <Form.Label>Edit</Form.Label>
+                  <input type="checkbox" checked={editPermissions.blogEdit ? true : false}
+                    onChange={(e) => { seteditPermissions({ ...editPermissions, blogEdit: e.target.checked }) }}
+                  />
+                  <Form.Label>Delete</Form.Label>
+                  <input type="checkbox" checked={editPermissions.blogDelete ? true : false}
+                    onChange={(e) => { seteditPermissions({ ...editPermissions, blogDelete: e.target.checked }) }}
+                  />
+                </div>
+              </Form.Group>
+               {/* //CATEGORIES */}
+              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                <Form.Label>Categories Management</Form.Label>
+                <div >
+                  <Form.Label>Create</Form.Label>
+                  <input type="checkbox" checked={editPermissions.categoryCreate ? true : false}
+                    onChange={(e) => { seteditPermissions({ ...editPermissions, categoryCreate: e.target.checked }) }}
+                  />
+                  <Form.Label>View</Form.Label>
+                  <input type="checkbox" checked={editPermissions.categoryView ? true : false}
+                    onChange={(e) => { seteditPermissions({ ...editPermissions, categoryView: e.target.checked }) }}
+                  />
+                  <Form.Label>Edit</Form.Label>
+                  <input type="checkbox" checked={editPermissions.categoryEdit ? true : false}
+                    onChange={(e) => { seteditPermissions({ ...editPermissions, categoryEdit: e.target.checked }) }}
+                  />
+                  <Form.Label>Delete</Form.Label>
+                  <input type="checkbox" checked={editPermissions.categoryDelete ? true : false}
+                    onChange={(e) => { seteditPermissions({ ...editPermissions, categoryDelete: e.target.checked }) }}
+                  />
+                </div>
+              </Form.Group>
                   {/* //Content */}
                   <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Services Management</Form.Label>

@@ -45,7 +45,7 @@ export default function(state = initialState, action) {
         case BLOG_LIST:
             return {
                 ...state,
-                blogList: action.payload.blogList,
+                blogList: action.payload.blog,
                 blogListAuth: true,
                 pagination: action.payload.pagination
             }
