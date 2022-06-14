@@ -116,6 +116,38 @@ const PermissionsSechema = new mongoose.Schema(
             type:Boolean, 
             default: false
         },
+        blogCreate: {
+            type:Boolean, 
+            default:false
+        },
+        blogView: {
+            type:Boolean, 
+            default:false
+        },
+        blogEdit: {
+            type:Boolean, 
+            default:false
+        },
+        blogDelete: {
+            type:Boolean, 
+            default:false
+        },
+        categoryCreate: {
+            type:Boolean, 
+            default:false
+        },
+        categoryView: {
+            type:Boolean, 
+            default:false
+        },
+        categoryEdit: {
+            type:Boolean, 
+            default:false
+        },
+        categoryDelete: {
+            type:Boolean, 
+            default:false
+        },
         servicesCreate: {
             type:Boolean, 
             default:false
