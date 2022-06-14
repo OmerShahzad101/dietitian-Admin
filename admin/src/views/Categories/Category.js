@@ -228,6 +228,7 @@ const Category = (props) => {
                                                                     </span>
                                                                 </td>
                                                                 <td className="td-actions">
+                                                                    {console.log(userAuthenticData?.permissionId?.categoryEdit, "dccd")}
                                                                     {
                                                                         userAuthenticData?.permissionId?.categoryEdit ? 
                                                                         <OverlayTrigger
