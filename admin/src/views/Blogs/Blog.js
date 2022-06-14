@@ -194,8 +194,8 @@ const Blog = (props) => {
                                         <Card.Title as="h4">Blogs</Card.Title>
                                         {
                                             userAuthenticData?.permissionId?.blogCreate ? 
-                                            <Button className="yellow-bg m-0">
-                                            <span onClick={() => history.push(`/blog/create`)}>
+                                            <Button onClick={() => history.push(`/blog/create`)} className="yellow-bg m-0">
+                                            <span>
                                                 Blog
                                             </span>
                                             <span className="pl-1">
@@ -211,6 +211,7 @@ const Blog = (props) => {
                                                 <thead>
                                                     <tr>
                                                         <th className="text-center td-start">#</th>
+                                                        <th className="td-name">Image</th>
                                                         <th className="td-name">NAME</th>
                                                         <th className="td-status">Excerpt</th>
                                                         <th className="td-name">Status</th>
@@ -224,7 +225,16 @@ const Blog = (props) => {
                                                                 return (
                                                                     <tr key={index}>
                                                                         <td className="td-start text-center">{pagination && ((pagination.limit * pagination.page) - pagination.limit) + index + 1}</td>
-
+                                                                        <td className="td-image">
+                                                                            <div className="user-image">
+                                                                                <img
+                                                                                    src= { !blog.image ? imagePlaceholder : `${ENV.Backend_Img_Url}${blog.image}` }
+                                                                                    alt="userImage"
+                                                                                    className="img-fluid"
+                                                                                >
+                                                                                </img>
+                                                                            </div>
+                                                                        </td>
                                                                         <td className="td-name">
                                                                             {blog?.title}
                                                                         </td>

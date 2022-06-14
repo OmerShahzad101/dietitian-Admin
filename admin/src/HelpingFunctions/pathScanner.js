@@ -48,7 +48,7 @@ const PathScanner = (array) => {
       if(( lastindexpath === 24 &&  secondlastindexpath == '/' && fourthlastIndex === '/' && ( thirdlastindexpath === 'edit' ||  thirdlastindexpath === 'view')) && 
         (fifthlastindex === 'services' || fifthlastindex === 'cms' || fifthlastindex === 'coaches' 
         || fifthlastindex === 'schedular' || fifthlastindex === 'view' || fifthlastindex === 'coachmembership' 
-        || fifthlastindex === 'membermembership'))
+        || fifthlastindex === 'membermembership' || fifthlastindex === 'blog' || fifthlastindex === 'category'))
         {
             path[pathlastLength-1] = 'id';
             path[pathlastLength-2] = '/:';

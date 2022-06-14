@@ -154,9 +154,9 @@ export const updateBlog = (obj, method = 'PUT') => dispatch => {
             'Authorization': ENV.Authorization,
             'x-auth-token': ENV.x_auth_token,
             'x-access-token': (localStorage.getItem('accessToken') ? window.atob(localStorage.getItem('accessToken')) : ''),
-            "Content-Type": "application/json",
+            //"Content-Type": "application/json",
         },
-        body:  JSON.stringify(obj)
+        body:  obj
     }).then(res => res.json()).then(data => {
         if (data.success) {
             toast.success(data.message)
@@ -189,6 +189,7 @@ export const updateBlog = (obj, method = 'PUT') => dispatch => {
         })
     })
 };
+
 
 export const deleteBlog = (id) => dispatch => {
     dispatch(emptyError());
