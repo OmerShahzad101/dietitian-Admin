@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { listCategory, deleteCategory } from './Category.action'
 const Category = (props) => {
+    console.log(`id---,.,,.`, props)
     const history = useHistory();
     const location = useLocation();
     const searchQuery = new URLSearchParams(location.search);
@@ -228,7 +229,7 @@ const Category = (props) => {
                                                                     </span>
                                                                 </td>
                                                                 <td className="td-actions">
-                                                                    {console.log(userAuthenticData?.permissionId?.categoryEdit, "dccd")}
+                                                                    
                                                                     {
                                                                         userAuthenticData?.permissionId?.categoryEdit ? 
                                                                         <OverlayTrigger
@@ -242,7 +243,7 @@ const Category = (props) => {
                                                                             className="btn-link btn-xs"
                                                                             type="button"
                                                                             variant="warning"
-                                                                            onClick={() => history.push(`category/edit/${data._id}`)}>
+                                                                            onClick={() => history.push(`/category/edit/${data._id}`)}>
                                                                             <i className="fas fa-edit"></i>
                                                                         </Button>
                                                                         </OverlayTrigger> : ""}

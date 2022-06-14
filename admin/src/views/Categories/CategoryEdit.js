@@ -14,7 +14,7 @@ import FullPageLoader from 'components/FullPageLoader/FullPageLoader';
 const CategoryEdit = (props) => {
 
     let id = props.match.params.id;
-    console.log(`id---,.,,.`, id)
+    console.log(`id---,.,,.`, props)
 
   const [errors, setErrors] = useState({});
   const [loader, setLoader] = useState(true);
@@ -93,7 +93,7 @@ const CategoryEdit = (props) => {
          formData.append(key, editCategory[key])
         props.updateCategory(formData);
         setLoader(false);
-        console.log('testttttt');
+     
         history.push('/categories')
     }
   }
@@ -136,7 +136,7 @@ const CategoryEdit = (props) => {
             </Form.Group>
 
             <Button variant="primary" type="submit" className="yellow-bg">
-                Edit Service
+                Edit Category
             </Button>
         </Form>}
     </Container>

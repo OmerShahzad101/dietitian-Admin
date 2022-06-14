@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { listServices, deleteService } from './Services.action'
 const Services = (props) => {
+    console.log(`id---,.,,.`, props)
     const history = useHistory();
     const location = useLocation();
     const searchQuery = new URLSearchParams(location.search);
@@ -177,7 +178,7 @@ const Services = (props) => {
                                        {
                                            userAuthenticData?.permissionId?.servicesCreate === true ?
                                             <Button className="yellow-bg m-0">
-                                            <span onClick={() => history.push(`/services/create/`)}>
+                                            <span onClick={() => history.push(`/services/create`)}>
                                                 Services
                                             </span>
                                             <span className="pl-1">
@@ -223,6 +224,7 @@ const Services = (props) => {
                                                                     <div dangerouslySetInnerHTML={{ __html: data?.description }} />
                                                                 </td>
                                                                 <td className="td-status">
+                                                                    
                                                                     <span className={`status p-1 ${data.status ? `bg-success` : `bg-danger`}`}>
                                                                         {data.status ? "active" : "inactive"}
                                                                     </span>
