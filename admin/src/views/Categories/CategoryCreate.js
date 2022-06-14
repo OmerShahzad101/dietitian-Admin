@@ -12,7 +12,7 @@ import FullPageLoader from 'components/FullPageLoader/FullPageLoader';
 const CategoryCreate = (props) => {
 
   const [errors, setErrors] = useState({});
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
   const history = useHistory();
   const [addCategory, setAddCategory] = useState({
       title:'',

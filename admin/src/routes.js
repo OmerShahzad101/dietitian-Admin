@@ -41,9 +41,8 @@ import Blog from 'views/Blogs/Blog';
 import CreateBlog from 'views/Blogs/CreateBlog';
 import EditBlog from 'views/Blogs/EditBlog';
 import Category from 'views/Categories/Category';
-import CreateCategory from 'views/Categories/CategoryCreate';
-import EditCategory from 'views/Categories/CategoryEdit';
-import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
+import CategoryCreate from 'views/Categories/CategoryCreate';
+import CategoryEdit from 'views/Categories/CategoryEdit';
 import { object } from 'prop-types';
 
 const routes =  () =>  {
@@ -124,8 +123,7 @@ const routes =  () =>  {
       name: "Blog Management",
       state: "openProductssssss",
       icon: "nc-icon nc-badge",
-      //showInSideBar: data?.blogView === false && data?.categoryView === false ? false : true,
-      showInSideBar: data?.blogView === false ? false : true,
+      showInSideBar: data?.blogView === false && data?.categoryView === false ? false : true,
       submenus: [
         {
           path: "/blog",
@@ -178,7 +176,7 @@ const routes =  () =>  {
       icon: "nc-icon nc-layers-3",
       access: data?.categoryCreate === true ? true : false, 
       exact: true,
-      component: CreateCategory,
+      component: CategoryCreate,
     },
     {
       exceptional:true,
@@ -188,7 +186,7 @@ const routes =  () =>  {
       icon: "nc-icon nc-layers-3",
       access: data?.categoryEdit === true ? true : false, 
       exact: true,
-      component: EditCategory,
+      component: CategoryEdit,
     },
     {
       collapse: true,
@@ -476,6 +474,7 @@ const routes =  () =>  {
       access:data?.settingsView === true ? true : false,
       showInSideBar:data?.settingsView === true ? true : false,
     },
+    
   ];
 
   return routesArr;

@@ -14,7 +14,7 @@ import FullPageLoader from 'components/FullPageLoader/FullPageLoader';
 const ServicesEdit = (props) => {
 
     let id = props.match.params.id;
-    console.log(`id---,.,,.`, id)
+    console.log(`id---,.,,.`, props)
 
   const [errors, setErrors] = useState({});
   const [loader, setLoader] = useState(true);
