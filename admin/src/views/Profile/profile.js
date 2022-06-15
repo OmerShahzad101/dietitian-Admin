@@ -202,11 +202,14 @@ function Profile(props) {
     if (pic.profileImage) {
       setLoader(true)
       let formData = new FormData()
-      for (const key in pic)
-        formData.append(key, pic[key])
+      // for (const key in pic)
+      //   formData.append(key, pic[key])
+      for (const key in admin)
+        formData.append(key, admin[key])
       props.updateAdmin(formData)
       document.querySelector('#imageUploader').value = null
       setPic({ ...pic, profileImage: null })
+
     }
     else {
       toast.error('Please upload pic before updating.')
