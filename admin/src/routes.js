@@ -126,7 +126,7 @@ const routes =  () =>  {
       showInSideBar: data?.blogView === false && data?.categoryView === false ? false : true,
       submenus: [
         {
-          path: "/blog",
+          path: "/blogs",
           layout: Admin,
           name: "Blogs",
           icon: "nc-icon nc-badge",
@@ -137,7 +137,7 @@ const routes =  () =>  {
         },
         
         {
-          path: "/category",
+          path: "/categories",
           layout: Admin,
           name: "Categories",
           icon: "nc-icon nc-notes",
@@ -154,7 +154,7 @@ const routes =  () =>  {
       layout: Admin,
       name: "CREATE BLOG",
       icon: "nc-icon nc-layers-3",
-      access: data?.blogView === true ? true : false, 
+      access: data?.blogCreate === true ? true : false, 
       exact: true,
       component: CreateBlog,
     },
@@ -164,7 +164,7 @@ const routes =  () =>  {
       layout: Admin,
       name: "EDIT BLOG",
       icon: "nc-icon nc-layers-3",
-      access: data?.blogView === true ? true : false, 
+      access: data?.blogEdit === true ? true : false, 
       exact: true,
       component: EditBlog,
     },
@@ -176,7 +176,7 @@ const routes =  () =>  {
       icon: "nc-icon nc-layers-3",
       access: data?.categoryEdit === true ? true : false, 
       exact: true,
-      component: CategoryCreate,
+      component: CategoryEdit,
     },
     {
       exceptional:true,
@@ -186,7 +186,7 @@ const routes =  () =>  {
       icon: "nc-icon nc-layers-3",
       access: data?.categoryCreate === true ? true : false, 
       exact: true,
-      component: CategoryEdit,
+      component: CategoryCreate,
     },
     {
       collapse: true,

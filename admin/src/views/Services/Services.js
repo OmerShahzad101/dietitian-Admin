@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { listServices, deleteService } from './Services.action'
 const Services = (props) => {
-    console.log(`id---,.,,.`, props)
+    // console.log(`id---,.,,.`, props)
     const history = useHistory();
     const location = useLocation();
     const searchQuery = new URLSearchParams(location.search);

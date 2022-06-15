@@ -118,7 +118,7 @@ const CategoryEdit = (props) => {
                 <Form.Label>Image</Form.Label>
                 <div className="mb-2">
                 <img
-                 src={editCategory?.image ? typeof editCategory?.image === 'string' ? `${ENV.Backend_Img_Url}${editCategory?.image}` : URL.createObjectURL(editCategory?.logo) : imagePlaceholder}
+                 src={editCategory?.image ? typeof editCategory?.image === 'string' ? `${ENV.Backend_Img_Url}${editCategory?.image}` : URL.createObjectURL(editCategory?.image) : imagePlaceholder}
                   style={{ height: 100, width: 100, objectFit: "contain" }}
                 />
                 </div>

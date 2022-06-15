@@ -32,7 +32,7 @@ export default function(state = initialState, action) {
         case UPDATE_BLOG:
             return {
                 ...state,
-                blog: action.payload.blog,
+                blog: action.payload.updateBlog,
                 updateBlogAuth: true,
             }
         case DELETE_BLOG:

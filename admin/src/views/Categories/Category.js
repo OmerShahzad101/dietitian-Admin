@@ -177,8 +177,8 @@ const Category = (props) => {
                                         <Card.Title as="h4">Categories</Card.Title>
                                        {
                                            userAuthenticData?.permissionId?.categoryCreate === true ?
-                                            <Button className="yellow-bg m-0">
-                                            <span onClick={() => history.push(`/category/create`)}>
+                                            <Button onClick={() => history.push(`/category/create`)} className="yellow-bg m-0">
+                                            <span>
                                              Category
                                             </span>
                                             <span className="pl-1">
@@ -243,7 +243,7 @@ const Category = (props) => {
                                                                             className="btn-link btn-xs"
                                                                             type="button"
                                                                             variant="warning"
-                                                                            onClick={() => history.push(`/category/edit/${data._id}`)}>
+                                                                            onClick={() => {history.push(`/category/edit/${data._id}`)}}>
                                                                             <i className="fas fa-edit"></i>
                                                                         </Button>
                                                                         </OverlayTrigger> : ""}
