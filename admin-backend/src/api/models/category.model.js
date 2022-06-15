@@ -6,7 +6,7 @@ var Category = new Schema(
     email: { type: String },
     title: { type: String },
     image: { type: String },
-    status:{ Boolean: false},
+    status: { type: Boolean, default: true },
   },
   {
     timestamps: true,

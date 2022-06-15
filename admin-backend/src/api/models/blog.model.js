@@ -26,8 +26,10 @@ var Blog = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Category', 
     },
-    status:{
-        Boolean: false,
+    status: { 
+        type: Boolean, 
+        default: true, 
+        required: true 
     },
 },
     {
