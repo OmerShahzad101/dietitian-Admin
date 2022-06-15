@@ -142,7 +142,7 @@ select option{color: #4a4a4a;}
   border-bottom: 1px solid rgb(235 235 235);}
 .dropdown-toggle{color:#198c96 !important;}
 /*dropdown item*/
-.dropdown-item a{color: #198c96;}
+.dropdown-menu .dropdown-item a, .dropdown-menu .dropdown-item {color: #198c96;}
 .dropdown-menu{background: hsla(210,6%,93%,.8);border: 1px solid rgba(170, 166, 166, 0.062);}
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus {background: #198c96!important;color: #fff;}
 .dropdown-menu .dropdown-item:hover > a, .dropdown-menu .dropdown-item:focus > a {color: #fff;}

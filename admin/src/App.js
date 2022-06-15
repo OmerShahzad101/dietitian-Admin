@@ -13,6 +13,7 @@ function App(props) {
         <Switch>
           {
             routesArr?.map((route, index) => {
+              // {console.log(routesArr,"routesArr")}
               if (route?.path) {
                 return (
                   <PrivateRoute

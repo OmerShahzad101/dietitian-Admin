@@ -94,7 +94,7 @@ const CreateBlog = (props) => {
                     category: '',
                 })
                 setLoader(true);
-                history.push('/blog')
+                history.push('/blogs')
             }
         // console.log(`values of cms form>>>`, addBlog)
     }

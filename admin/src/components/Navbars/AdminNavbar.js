@@ -76,7 +76,7 @@ function AdminNavbar(props) {
                   </Dropdown.Item>
                   <div className="divider"></div>
                   <Dropdown.Item
-                    className="text-danger"
+                    className=""
                     href="/login"
                     onClick={() => {
                       props.beforeAdmin();
@@ -85,10 +85,8 @@ function AdminNavbar(props) {
                       localStorage.removeItem("encuse");
                     }}
                   >
-                    <NavLink to="/login">
-                      <i className="nc-icon nc-button-power"></i>
+                     <i className="nc-icon nc-button-power"></i>
                       Log out
-                    </NavLink>
                   </Dropdown.Item>
 
                 </Dropdown.Menu>
