@@ -446,25 +446,18 @@ exports.editPassword = async (req, res, next) => {
 exports.forgotPassword = async (req, res, next) => {
   try {
     let findTemplate = await Email.find();
-    if(findTemplate.length === 0){
-      const email = await Email.create(templatePayload);
-    }
+    if(findTemplate.length === 0){const email = await Email.create(templatePayload)
+    console.log(email, "email")}
     let payload = req.body;
     let admin = await Admin.find({ email: payload.email });
     if (admin.length) {
-      let randString = randomstring.generate({
-        length: 8,
-        charset: "alphanumeric",
-      });
-      await Admin.findByIdAndUpdate(
-        { _id: mongoose.Types.ObjectId(admin[0]._id) },
-        { $set: { resetCode: randString } },
-        { new: true }
-      );
-      let content = {
-        "${url}": `${adminUrl}admin/reset-password/${admin[0]._id}/${randString}`,
-      };
+      let randString = randomstring.generate({length: 8,charset: "alphanumeric"});
+      await Admin.findByIdAndUpdate({ _id: mongoose.Types.ObjectId(admin[0]._id) },{ $set: { resetCode: randString}},{ new: true });
+      let content = { "${url}": `${adminUrl}admin/reset-password/${admin[0]._id}/${randString}`};
+      console.log(content, "content")
       const data = await sendEmail(payload.email, "forgot-password", content,);
+      console.log(data, "dataaa")
+
       return res.send({
         success: true,
         message:
