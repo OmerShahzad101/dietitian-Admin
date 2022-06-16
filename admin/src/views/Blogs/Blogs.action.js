@@ -61,6 +61,7 @@ export const createBlog = (obj ,qs = null) => dispatch => {
 export const listBlog= (qs = null) => dispatch => {
     dispatch(emptyError());
     let url = `${ENV.url}blog/list`;
+    
     if (qs)
         url += `?${qs}`
     fetch(url, {
@@ -73,7 +74,6 @@ export const listBlog= (qs = null) => dispatch => {
         }
     }).then(res => res.json()).then(data => {
         if (data.success) {
-            if (!qs) toast.success(data.message);
             dispatch({
                 type: BLOG_LIST,
                 payload: data.data

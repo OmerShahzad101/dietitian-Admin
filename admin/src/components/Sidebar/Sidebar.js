@@ -122,16 +122,13 @@ function Sidebar({ routes, image, background }) {
     <>
       <div className="sidebar" data-color={background} data-image={image}>
         <div className="sidebar-wrapper">
-          <div className="logo">
-            <Link to="/#" className="align-top d-inline-block sidebar-logo">
-              <div className="logo-size">
+              <Link to="/#" className="logo">
                 <img
                   src={require("assets/img/favicon.png").default}
+                  className="img-fluid"
                   alt="Dietitian Your Way"
                 />
-              </div>
-            </Link>
-          </div>
+              </Link>
           {/* <div className="user">
             <div className="photo">
               <img

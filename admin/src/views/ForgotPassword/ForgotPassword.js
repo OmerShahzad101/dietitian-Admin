@@ -59,7 +59,7 @@ function ForgotPassword(props) {
       <div
         className="full-page section-image"
         // data-color="black"
-        data-image={require("assets/img/video-img.jpeg").default}
+        data-image={require("assets/img/bg2.jpg").default}
       >
         <div className="content d-flex align-items-center p-0">
           <Container>
@@ -116,7 +116,7 @@ function ForgotPassword(props) {
           style={{
             backgroundImage:
               "url(" +
-              require("assets/img/video-img.jpeg").default +
+              require("assets/img/bg2.jpg").default +
               ")",
           }}
         ></div>

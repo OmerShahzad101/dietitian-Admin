@@ -109,7 +109,7 @@ const routes =  () =>  {
         {
           path: "/permissions",
           layout: Admin,
-          name: "Permissions",
+          name: "Roles & Permissions",
           icon: "nc-icon nc-notes",
           access: data?.permissionsView === true ? true : false,
           exact: data?.permissionsView === true ? true : false,
@@ -190,15 +190,15 @@ const routes =  () =>  {
     },
     {
       collapse: true,
-      name: "Users",
+      name: "Users Management",
       state: "openProductss",
-      icon: "nc-icon nc-badge",
+      icon: "nc-icon nc-circle-09",
       showInSideBar: data?.userView === false && data?.coachingView === false ? false : true,
       submenus: [
         {
-          path: "/members",
+          path: "/clients",
           layout: Admin,
-          name: "Members",
+          name: "Clients",
           icon: "nc-icon nc-badge",
           access: data?.userView === true ? true : false,
           exact: data?.userView === true ? true : false,
@@ -219,9 +219,9 @@ const routes =  () =>  {
     },
     {
       collapse: true,
-      name: "Membership Management",
+      name: "Subscriptions Management",
       state: "openProductsss",
-      icon: "nc-icon nc-badge",
+      icon: "nc-icon nc-money-coins",
       showInSideBar: data?.userMemberShipView === false && data?.coachMemberShipView === false ? false : true,
       submenus: [
         {
@@ -341,7 +341,7 @@ const routes =  () =>  {
     {
       path: "/services",
       layout: Admin,
-      name: "Services",
+      name: "Services Management",
       icon: "nc-icon nc-layers-3",
       access: data?.servicesView === true ? true : false, exact: true,
       component: Services,
@@ -369,8 +369,8 @@ const routes =  () =>  {
     {
       path: "/cms",
       layout: Admin,
-      name: "CMS",
-      icon: "nc-icon nc-layers-3",
+      name: "Content Management",
+      icon: "nc-icon nc-paper-2",
       access: data?.contentView === true ? true : false, exact: true,
       component: Cms,
       showInSideBar: data?.contentView === true ? true : false,
@@ -402,7 +402,8 @@ const routes =  () =>  {
       icon: "nc-icon nc-layers-3",
       access: data?.reviewView === true ? true : false, exact: true,
       component: Review,
-      showInSideBar: data?.reviewView === true ? true : false,
+      showInSideBar: false,
+      // showInSideBar: data?.reviewView === true ? true : false,
     },
     {
       path: "/email-templates",
@@ -411,7 +412,8 @@ const routes =  () =>  {
       icon: "nc-icon nc-layers-3",
       access: data?.emailTemplateEdit === true ? true : false, exact: true,
       component: EmailTemplates,
-      showInSideBar: data?.emailTemplateEdit === true ? true : false,
+      showInSideBar:  false,
+      // showInSideBar: data?.emailTemplateEdit === true ? true : false,
     },
     {
       path: "/contact-us-queries",
@@ -469,7 +471,7 @@ const routes =  () =>  {
       path:"/settings",
       layout: Admin,
       name: "Settings",
-      icon: "nc-icon nc-layers-3",
+      icon: "nc-icon nc-settings-gear-64",
       component: Settings,
       access:data?.settingsView === true ? true : false,
       showInSideBar:data?.settingsView === true ? true : false,

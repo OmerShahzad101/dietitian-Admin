@@ -30,7 +30,7 @@ import { useHistory, useLocation } from "react-router";
 import moment from "moment";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faFilter, faPlus } from "@fortawesome/free-solid-svg-icons";
 import userDefaultImg from "../../assets/img/placeholder.png";
 import { ENV } from "../../config/config";
 
@@ -389,8 +389,8 @@ const Members = (props) => {
             <Col md="12">
               <Card className="table-big-boy">
                 <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
-                  <Card.Title as="h4">Members</Card.Title>
-                  {
+                  <Card.Title as="h4">Clients Management</Card.Title>
+                  {/* {
                     userAuthenticData?.permissionId?.userCreate === true ? 
                     <Button
                     onClick={() => {
@@ -398,13 +398,13 @@ const Members = (props) => {
                     }}
                     className="yellow-bg m-0"
                   >
-                    <span>Member</span>
+                    <span>ADD</span>
                     <span className="pl-1">
-                      <FontAwesomeIcon icon={faUserPlus} />
+                      <FontAwesomeIcon icon={faPlus} />
                     </span>
                   </Button> : ""
 
-                  }
+                  } */}
                   
                 </div>
 
@@ -417,7 +417,7 @@ const Members = (props) => {
                           <th className="td-image">Image</th>
                           <th className="td-name">USERNAME</th>
                           <th className="td-email">Email</th>
-                          <th className="td-email">MemberShip</th>
+                          
                           <th className="td-resident">Address</th>
                           <th className="td-status">Status</th>
                           <th className="td-created">Created At</th>
@@ -450,7 +450,7 @@ const Members = (props) => {
                                 </td>
                                 <td className="td-name">{member?.username}</td>
                                 <td className="td-email">{member?.email}</td>
-                                <td className="td-email">{member?.membershipData?.title ? member?.membershipData?.title : "N/A"}</td>
+                                
                                 <td className="td-resident">{member?.address}</td>
                                 <td className="td-status">
                                   <span
@@ -530,7 +530,7 @@ const Members = (props) => {
                         ) : (
                           <tr>
                             <td colSpan="9" className="text-center">
-                              <span className="no-data-found d-block">No Users found</span>
+                              <span className="no-data-found d-block">No clients found</span>
                             </td>
                           </tr>
                         )}

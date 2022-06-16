@@ -106,7 +106,7 @@ export const listAdmin = (qs = null) => dispatch => {
         }
     }).then(res => res.json()).then(data => {
         if (data.success) {
-            if (!qs) toast.success(data.message);
+           
             dispatch({
                 type: LIST_ADMIN,
                 payload: data.data,
@@ -316,8 +316,9 @@ export const deleteAdmin = (id) => dispatch => {
 };
 
 export const forgotPassword = (body) => dispatch => {
+    console.log(body,"asodaiosdu")
     dispatch(emptyError());
-    const url = `${ENV.url}staff/forgot-password`;
+    const url = `http://localhost:8082/v1/front/auth/forgot-password`;
 
     fetch(url, {
         method: 'POST',

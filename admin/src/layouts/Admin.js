@@ -6,7 +6,6 @@ import Footer from "components/Footers/AdminFooter";
 import Sidebar from "components/Sidebar/Sidebar";
 import routes from "routes.js";
 import { ENV } from './../config/config';
-import sideBG from "assets/img/featuregaming.png";
 
 class Admin extends Component {
 	constructor(props) {
@@ -53,7 +52,7 @@ class Admin extends Component {
 				{
 					localStorage.getItem("accessToken") ?
 						<div className={`wrapper`}>
-							<Sidebar {...this.props} routes={this.state.routes} image={sideBG} background={'black'} />
+							<Sidebar {...this.props} routes={this.state.routes} background={'black'} />
 							<div id="main-panel" className="main-panel" ref="mainPanel">
 								<AdminNavbar {...this.props} brandText={this.getBrandText(this.props.location.pathname)} history={this.props.history} />
 								<div className="content">

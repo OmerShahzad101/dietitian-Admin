@@ -25,8 +25,7 @@ export const getContacts = (qs = null) => dispatch => {
         }
     }).then(res => res.json()).then(data => {
         if (data.success) {
-            if (!qs)
-                toast.success(data.message)
+         
             dispatch({
                 type: GET_CONTACTS,
                 payload: data.data

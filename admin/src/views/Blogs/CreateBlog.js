@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useHistory } from 'react-router';
@@ -6,16 +6,25 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { createBlog } from './Blogs.action';
 import userDefaultImg from "../../assets/img/placeholder.png";
+import { ENV } from '../../config/config';
 
 const CreateBlog = (props) => {
+  
   const [loader, setLoader] = useState(true);
+  const [categoriesList, setCategoriesList] = useState(null)
+  useEffect(()=>{
+    fetch(`${ENV.url}category/list`).then(res => res.json()).then((res)=>{
+      console.log(res.data.category)
+      setCategoriesList(res?.data?.category)
+    })
+  },[])
     const [addBlog, setAddBlog] = useState({
         title:'',
         excerpt: '',
         status: true,
         description: '',
         image: '',
-        category: '62a755725412b42ef08dc090',
+        category: '',
         });
 
     const [errors, setErrors] = useState({});
@@ -73,6 +82,7 @@ const CreateBlog = (props) => {
     };
 
     const submitAdd = (e) => {
+  
         e.preventDefault();
         if(addBlog.title.trim() === ''){
             setErrors({...errors, title : 'Title is required'})
@@ -80,7 +90,11 @@ const CreateBlog = (props) => {
             setErrors({...errors, excerpt : 'Excerpt is required'})
         }else if(addBlog.description.trim() === ''){
             setErrors({...errors, description : 'Description is required'})
-        }else{  
+        }
+        else if(addBlog.category.trim() === ''){
+          setErrors({...errors, category : 'Category is required'})
+      }else{  
+        setErrors(errors)
             let formData = new FormData()
             for (const key in addBlog)
                 formData.append(key, addBlog[key])
@@ -91,9 +105,9 @@ const CreateBlog = (props) => {
                     status: true,
                     description: '',
                     image: '',
-                    category: '',
+                    categoryId: '',
                 })
-                setLoader(true);
+                setLoader(false);
                 history.push('/blogs')
             }
         // console.log(`values of cms form>>>`, addBlog)
@@ -101,6 +115,7 @@ const CreateBlog = (props) => {
 
   return (
     <Container>
+
         <Form  onSubmit={(e) => { submitAdd(e) }}>
             <Form.Group className="mb-3">
                 <Form.Label>Image</Form.Label>
@@ -112,6 +127,21 @@ const CreateBlog = (props) => {
                 </div>
                 <Form.Control type="file" onChange={addPhotoChange} />
             </Form.Group>
+            <Form.Label> Select Category </Form.Label>
+            
+                  <select className='form-control form-select mb-3' name="category" value={addBlog.category} onChange={(e) => {
+                      setAddBlog({ ...addBlog,category:e.target.value })
+                  }}>
+                    <option value="">Select Category</option>
+                    {
+                      categoriesList?.map((data,i) => {
+                      return (
+                          <option key={i} value={data?._id}>{data.title}</option>
+                          );
+                      })
+                    }
+                  </select>
+                  <span style={{ color: "red" }}>{errors["category"]}</span>
             <Form.Group className="mb-3">
                 <Form.Label>Title</Form.Label>
                 <Form.Control type="text" placeholder="Enter title" name="title" value={addBlog.title} onChange={(e) => { setAddBlog({ ...addBlog, title: e.target.value }) }} />

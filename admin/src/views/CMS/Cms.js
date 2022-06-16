@@ -191,12 +191,12 @@ const Cms = (props) => {
                             <Col md="12">
                                 <Card className="table-big-boy">
                                     <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
-                                        <Card.Title as="h4">CMS</Card.Title>
+                                        <Card.Title as="h4">Content Management</Card.Title>
                                         {
                                             userAuthenticData?.permissionId?.contentCreate ? 
-                                            <Button className="yellow-bg m-0">
-                                            <span onClick={() => history.push(`/cms/create`)}>
-                                                CMS
+                                            <Button  onClick={() => history.push(`/cms/create`)} className="yellow-bg m-0">
+                                            <span>
+                                                ADD
                                             </span>
                                             <span className="pl-1">
                                                 <FontAwesomeIcon icon={faPlus} />

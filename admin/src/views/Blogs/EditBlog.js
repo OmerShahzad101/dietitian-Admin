@@ -16,6 +16,13 @@ const EditBlog = (props) => {
     const [loader, setLoader] = useState(true);
     const [errors, setErrors] = useState({});
     const history = useHistory();
+    const [categoriesList, setCategoriesList] = useState(null)
+    useEffect(()=>{
+      fetch(`${ENV.url}category/list`).then(res => res.json()).then((res)=>{
+        console.log(res.data.category)
+        setCategoriesList(res?.data?.category)
+      })
+    },[])
     const [pic, setPic] = useState({
         image: null,
         _id:'',
@@ -92,6 +99,9 @@ const EditBlog = (props) => {
         }
         else if(editBlog.excerpt.trim() === ''){
             setErrors({...errors, excerpt : 'Excerpt is required'})
+        }
+        else if(editBlog.category.trim() === ''){
+            setErrors({...errors, category : 'Category is required'})
         }else{
             let formData = new FormData()
             for (const key in editBlog)
@@ -99,7 +109,7 @@ const EditBlog = (props) => {
              
             props.updateBlog(formData);
             setLoader(false);
-            history.push('/blog')
+            history.push('/blogs')
         }
     }
     return (
@@ -122,6 +132,19 @@ const EditBlog = (props) => {
                             <Form.Control type="text" placeholder="Enter title" name="title" value={editBlog?.title} onChange={(e) => { setEditBlog({ ...editBlog, title: e.target.value }) }} />
                             <span style={{ color: "red" }}>{errors["title"]}</span>
                         </Form.Group>
+                        <Form.Label> Select Category </Form.Label>
+                            <select className='form-control form-select mb-3' name="category" value={editBlog.category} onChange={(e) => {
+                                setEditBlog({ ...editBlog,category:e.target.value })
+                            }}>
+                                {
+                                categoriesList?.map((data,i) => {
+                                return (
+                                    <option key={i} value={data?._id} selected={data?._id === editBlog.category ? 'selected' : ''} required>{data.title}</option>
+                                    );
+                                })
+                                }
+                            </select>
+                            <span style={{ color: "red" }}>{errors["category"]}</span>
                         <Form.Group className="mb-3">
                             <Form.Label>Excerpt</Form.Label>
                             <Form.Control type="text" placeholder="Enter excerpt" name="excerpt" value={editBlog?.excerpt} onChange={(e) => { setEditBlog({ ...editBlog, excerpt: e.target.value }) }} />

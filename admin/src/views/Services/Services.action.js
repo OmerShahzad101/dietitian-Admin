@@ -74,7 +74,6 @@ export const listServices = (qs = null) => (dispatch) => {
     })
       .then((res) => res.json()).then((data) => {
         if (data.success) {
-          if (!qs) toast.success(data.message);
           dispatch({
             type: LIST_SERVICES,
             payload: data.data,

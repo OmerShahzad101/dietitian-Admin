@@ -87,7 +87,7 @@ const CategoryCreate = (props) => {
         email: '',
         image:''
       })
-      setLoader(true);
+      setLoader(false);
       history.push('/categories')
     }
   }
@@ -95,8 +95,8 @@ const CategoryCreate = (props) => {
     <Container>
       <Form  onSubmit={(e) => { submitAdd (e) }}>
           <Form.Group className="mb-3">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter title" name="title" value={addCategory.title} onChange={(e) => { setAddCategory({ ...addCategory, title: e.target.value }) }} />
+            <Form.Label>Category Name</Form.Label>
+            <Form.Control type="text" placeholder="Category Name" name="title" value={addCategory.title} onChange={(e) => { setAddCategory({ ...addCategory, title: e.target.value }) }} />
             <span style={{ color: "red" }}>{addCategory.title === "" ? errors["title"] : ""}</span>
           </Form.Group>
           <Form.Group className="mb-3">

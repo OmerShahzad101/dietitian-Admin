@@ -85,7 +85,7 @@ export const getMembers = (qs = null) => (dispatch) => {
     })
       .then((res) => res.json()).then((data) => {
         if (data.success) {
-          if (!qs) toast.success(data.message);
+          
           dispatch({
             type: GET_MEMBERS,
             payload: data.data,

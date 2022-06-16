@@ -151,7 +151,7 @@ select option{color: #4a4a4a;}
 .navbar-nav .nav-item .dropdown-menu:after {/* border-bottom: 11px solid #2a2929;border-left: 11px solid #313131;border-right: 11px solid #313131; */display: none;}
 .navbar .navbar-nav .nav-item .dropdown-menu .divider {background-color: #000;}
 .login-logo{padding: 5px;border-radius: 6px;display: flex;align-items: center;justify-content: center;}
-.logo{width: 140px;height: 60px;}
+.logo img{width: 100px;}
 /*side bar*/
 .sidebar .nav .nav-item.active .nav-link{    background: rgba(17,17,21,.05);color: #fff;transition: all ease-in-out 0.3s;border-radius: 6px;}
 .sidebar .nav .nav-item.active .nav-icon-holder{background-color: #fff;color: #202521;transition: all ease-in-out 0.3s;}
@@ -169,7 +169,7 @@ padding: 5px 80px 5px 4px;border-radius: 6px;}
 .sidebar .sidebar-wrapper{overflow-y: scroll !important;}
 .sidebar .logo-img img {width: 65px;top: 0px;left: -16px;}   
 .sidebar .logo-img{width: 100%;}
-.sidebar .logo{       padding: 12px 13px 9px}
+
 .sidebar-wrapper{background-color: #ffff;}
 /*cards */
 .card-title{margin: 0;}

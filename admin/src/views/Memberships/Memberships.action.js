@@ -114,7 +114,7 @@ export const listMemberships= (qs = null, calledFunction) => dispatch => {
         }
     }).then(res => res.json()).then(data => {
         if (data.success) {
-            if ( !qs && !calledFunction ) toast.success(data.message);
+            
             dispatch({
                 type: MEMBERSHIP_LIST,
                 payload: data.data
