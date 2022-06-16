@@ -1,6 +1,7 @@
 const ObjectId = require("mongoose").Types.ObjectId;
 const User = require("../../models/users.model");
 const MemberShip = require('../../models/membership.model');
+const Blog = require("../../models/blog.model");
 
 exports.list = async (req, res, next) => {
     try {
@@ -96,12 +97,15 @@ exports.list = async (req, res, next) => {
           }
         },{$sort: { '_id' : 1 , "createdAt": -1} },
       ])
+      const totalBlogs = await Blog.countDocuments();
+
+
       return res.send({
         success: true,
         message: "dashboard data fetched successfully",
         data: {
           dashboardData: {
-            totalmember,totaladmin,totalcoach,totalCoachMemberships,totalMemberMemberships
+            totalBlogs,totalmember,totaladmin,totalcoach,totalCoachMemberships,totalMemberMemberships
           },membersGraph,coachesGraph,coachMembershipsGraph, memberMembershipsGraph
         },
       });
