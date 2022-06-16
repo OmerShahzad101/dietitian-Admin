@@ -10,7 +10,7 @@ exports.create = async (req, res, next) => {
         const cms = new CMS(payload)
         await cms.save()
 
-        return res.send({ success: true, message: 'CMS created successfully', cms })
+        return res.send({ success: true, message: 'Created successfully', cms })
     } catch (error) {
         if (error.code === 11000 || error.code === 11001)
             checkDuplicate(error, res, 'CMS')
@@ -32,7 +32,7 @@ exports.edit = async (req, res, next) => {
               .replace(/-+$/, '');            // Trim - from end of text
         
         const cms = await CMS.findByIdAndUpdate({ _id: mongoose.Types.ObjectId(payload._id) }, { $set: payload }, { new: true })
-        return res.send({ success: true, message: 'CMS updated successfully', cms })
+        return res.send({ success: true, message: 'Updated successfully', cms })
     } catch (error) {
         if (error.code === 11000 || error.code === 11001)
             checkDuplicate(error, res, 'CMS')
@@ -48,7 +48,7 @@ exports.delete = async (req, res, next) => {
         if (cmsId) {
             const cms = await CMS.deleteOne({ _id: cmsId })
             if (cms.deletedCount)
-                return res.send({ success: true, message: 'CMS deleted successfully', cmsId })
+                return res.send({ success: true, message: 'Deleted successfully', cmsId })
             else return res.status(400).send({ success: false, message: 'CMS not found for given Id' })
         } else
             return res.status(400).send({ success: false, message: 'CMS Id is required' })

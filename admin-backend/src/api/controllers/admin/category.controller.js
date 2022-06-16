@@ -15,7 +15,7 @@ exports.create = async (req, res, next) => {
       const category = await newCategory.save();
       return res.send({
         success: true,
-        message: "Category created successfully",
+        message: "Created successfully",
         category,
       });
     } else {
@@ -107,8 +107,8 @@ exports.edit = async (req, res, next) => {
       const images = req.file.filename;
       payload.image = `/${images}`;
     }
-    const validate = await Category.findOne({title: payload.title}).lean()
-    if (!validate) {
+    // const validate = await Category.findOne({title: payload.title}).lean()
+    // if (!validate) {
     const category = await Category.findByIdAndUpdate(
       { _id: mongoose.Types.ObjectId(payload._id) },
       { $set: payload },
@@ -116,16 +116,16 @@ exports.edit = async (req, res, next) => {
     );
     return res.send({
       success: true,
-      message: "Category updated successfully",
+      message: "Updated successfully",
       category,
     });
-  }
-  else{
-    return res.send({
-      success: false,
-      message: "Category name already exist",
-    });
-  }
+  // }
+  // else{
+  //   return res.send({
+  //     success: false,
+  //     message: "Category name already exist",
+  //   });
+  // }
   } catch (error) {
     if (error.code === 11000 || error.code === 11001)
       checkDuplicate(error, res, "category");
@@ -141,7 +141,7 @@ exports.delete = async (req, res, next) => {
       if (category && category.deletedCount)
         return res.send({
           success: true,
-          message: "Category is  deleted successfully",
+          message: "Deleted successfully",
           categoryId,
         });
       else

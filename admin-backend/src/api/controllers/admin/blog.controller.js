@@ -16,7 +16,7 @@ exports.create = async (req, res, next) => {
     const blog = await newBlog.save();
     return res.send({
       success: true,
-      message: "Blog created successfully",
+      message: "Created successfully",
       blog,
     });
   } catch (error) {
@@ -46,6 +46,14 @@ exports.list = async (req, res, next) => {
       { $sort: { createdAt: -1 } },
       { $skip: limit * (page - 1) },
       { $limit: limit },
+      {
+        $lookup: {
+          from: "categories",
+          localField: "category",
+          foreignField: "_id",
+          as: "categorylist",
+        },
+      },
     ]);
     return res.send({
       success: true,
@@ -108,7 +116,7 @@ exports.edit = async (req, res, next) => {
     );
     return res.send({
       success: true,
-      message: "Blog updated successfully",
+      message: "Updated successfully",
       blog,
     });
   } catch (error) {
@@ -126,7 +134,7 @@ exports.delete = async (req, res, next) => {
       if (blog && blog.deletedCount)
         return res.send({
           success: true,
-          message: "blog is  deleted successfully",
+          message: "Deleted successfully",
           blogId,
         });
       else
