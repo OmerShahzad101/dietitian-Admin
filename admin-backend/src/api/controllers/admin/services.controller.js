@@ -13,7 +13,7 @@ exports.create = async (req, res, next) => {
     const savedService = await newService.save();
     return res.send({
       success: true,
-      message: "Service created successfully",
+      message: "Created successfully",
       savedService,
     });
   } catch (error) {
@@ -110,7 +110,7 @@ exports.edit = async (req, res, next) => {
     );
     return res.send({
       success: true,
-      message: "services updated successfully",
+      message: "Updated successfully",
       service,
     });
   } catch (error) {
@@ -128,7 +128,7 @@ exports.delete = async (req, res, next) => {
       if (service && service.deletedCount)
         return res.send({
           success: true,
-          message: "service is  deleted successfully",
+          message: "Deleted successfully",
           serviceId,
         });
       else

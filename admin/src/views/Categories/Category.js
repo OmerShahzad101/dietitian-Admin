@@ -14,7 +14,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { listCategory, deleteCategory } from './Category.action'
 const Category = (props) => {
-    console.log(`id---,.,,.`, props)
     const history = useHistory();
     const location = useLocation();
     const searchQuery = new URLSearchParams(location.search);
@@ -174,12 +173,12 @@ const Category = (props) => {
                             <Col md="12">
                                 <Card className="table-big-boy">
                                     <div className="d-flex justify-content-between align-items-center register-users">
-                                        <Card.Title as="h4">Categories</Card.Title>
+                                        <Card.Title as="h4">Categories Management</Card.Title>
                                        {
                                            userAuthenticData?.permissionId?.categoryCreate === true ?
                                             <Button onClick={() => history.push(`/category/create`)} className="yellow-bg m-0">
                                             <span>
-                                             Category
+                                             ADD
                                             </span>
                                             <span className="pl-1">
                                                 <FontAwesomeIcon icon={faPlus} />

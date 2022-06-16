@@ -174,12 +174,12 @@ const Services = (props) => {
                             <Col md="12">
                                 <Card className="table-big-boy">
                                     <div className="d-flex justify-content-between align-items-center register-users">
-                                        <Card.Title as="h4">Services</Card.Title>
+                                        <Card.Title as="h4">Services Management</Card.Title>
                                        {
                                            userAuthenticData?.permissionId?.servicesCreate === true ?
-                                            <Button className="yellow-bg m-0">
-                                            <span onClick={() => history.push(`/services/create`)}>
-                                                Services
+                                            <Button onClick={() => history.push(`/services/create`)} className="yellow-bg m-0">
+                                            <span>
+                                                ADD
                                             </span>
                                             <span className="pl-1">
                                                 <FontAwesomeIcon icon={faPlus} />

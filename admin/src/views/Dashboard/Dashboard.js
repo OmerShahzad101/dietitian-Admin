@@ -77,7 +77,7 @@ function Dashboard(props) {
             </span>
           </Col>
           <Col xl="3" sm="6">
-            <span onClick={() => history.push(`/members`)}>
+            <span onClick={() => history.push(`/clients`)}>
             <Card className="card-stats">
               <Card.Body>
                 <Row className="align-items-center">

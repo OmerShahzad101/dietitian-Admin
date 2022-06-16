@@ -232,7 +232,7 @@ function Profile(props) {
                       <Card className="pb-4">
                         <Card.Header>
                           <Card.Header className="pl-0">
-                            <Card.Title as="h4" className="yellow-color">Profile</Card.Title>
+                            <Card.Title as="h4" className="yellow-color">Profile Management</Card.Title>
                           </Card.Header>
                         </Card.Header>
                         <Card.Body>

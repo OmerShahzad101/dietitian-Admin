@@ -74,7 +74,7 @@ export const listCategory = (qs = null) => (dispatch) => {
     })
       .then((res) => res.json()).then((data) => {
         if (data.success) {
-          if (!qs) toast.success(data.message);
+          
           dispatch({
             type: LIST_CATEGORY,
             payload: data.data,

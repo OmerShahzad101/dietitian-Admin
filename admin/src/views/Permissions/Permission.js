@@ -332,11 +332,11 @@ const Permissions = (props) => {
               <Col md={12}>
                 <Card className="table-big-boy">
                   <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
-                    <Card.Title as="h4">Permissions</Card.Title>
+                    <Card.Title as="h4">Roles & Permissions Management</Card.Title>
                    { 
                      userAuthenticData?.permissionId?.permissionsCreate === true ? 
                      <Button onClick={() => { setaddShow(true) }} className="yellow-bg m-0">
-                      <span> Permission  </span>
+                      <span> ADD  </span>
                       <span className="pl-1"> <FontAwesomeIcon icon={faPlus} /> </span>
                     </Button> : ""}
                   </div>
@@ -346,7 +346,7 @@ const Permissions = (props) => {
                         <thead>
                           <tr>
                             <th className="text-center td-start">#</th>
-                            <th className="td-name">TITLE</th>
+                            <th className="td-name">Role</th>
                             <th className="td-title">Permissions</th>
                             <th className="td-status">status</th>
                             <th className="td-created">Created At</th>
@@ -535,7 +535,7 @@ const Permissions = (props) => {
             </Modal.Header>
             <Modal.Body>
               <Form.Group className="mb-3" >
-                <Form.Label>Title</Form.Label>
+                <Form.Label>Role title</Form.Label>
                 <Form.Control type="text" placeholder="eg. admin" name="title" value={permissions.title} onChange={(e) => {
                   setpermissions({ ...permissions, title: e.target.value });
                 }} required
@@ -958,7 +958,7 @@ const Permissions = (props) => {
             </Modal.Header>
             <Modal.Body>
               <Form.Group className="mb-3" >
-                <Form.Label>Title</Form.Label>
+                <Form.Label>Role Title</Form.Label>
                 <Form.Control type="text" placeholder="eg. admin" value={editPermissions.title}
                   onChange={(e) => { seteditPermissions({ ...editPermissions, title: e.target.value }); }}
                 />

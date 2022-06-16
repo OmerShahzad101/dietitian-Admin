@@ -14,7 +14,7 @@ import { useHistory, useLocation } from 'react-router';
 import moment from "moment";
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilter, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Select from "react-dropdown-select";
 
 const AdminUser = (props) => {
@@ -382,15 +382,15 @@ const AdminUser = (props) => {
 
                                     <Card.Body className="table-full-width">
                                         <div className="d-block  d-sm-flex justify-content-between align-items-center add-categories">
-                                            <Card.Title as="h4">Add Staff</Card.Title>
+                                            <Card.Title as="h4">Staff Management</Card.Title>
                                             {
                                                 userAuthenticData?.permissionId?.staffCreate === true ? 
                                                 <Button onClick={() => { setAddShow(!addShow) }} className="yellow-bg m-0" >
                                                 <span>
-                                                    Add Staff
+                                                    ADD
                                                 </span>
                                                 <span className="pl-1">
-                                                    <FontAwesomeIcon icon={faUserPlus} />
+                                                    <FontAwesomeIcon icon={faPlus} />
                                                 </span>
                                                 </Button> : ""}
                                         </div>
@@ -402,7 +402,7 @@ const AdminUser = (props) => {
                                                         <th className="td-image">Image</th>
                                                         <th className="td-name">USERNAME</th>
                                                         <th className="td-email">Email</th>
-                                                        <th className="td-email">Permission</th>
+                                                        <th className="td-email">Role</th>
                                                         <th className="td-address">Address</th>
                                                         <th className="td-status">Status</th>
                                                         <th className="td-created">Created At</th>

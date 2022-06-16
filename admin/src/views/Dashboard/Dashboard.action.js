@@ -20,7 +20,7 @@ export const listdashboard = (qs = null) => dispatch => {
     }).then(res => res.json()).then(data => {
 
         if (data.success) {
-            if (!qs) toast.success(data.message);
+           
             dispatch({
                 type: GET_DASHBOARD_DATA,
                 payload: data.data,

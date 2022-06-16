@@ -31,7 +31,7 @@ import { useHistory, useLocation } from "react-router";
 import moment from "moment";
 import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faFilter, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { ENV } from "../../config/config";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -390,18 +390,18 @@ useEffect(() => {
               <Card className="table-big-boy">
                 <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
                   <Card.Title as="h4">Dietitian</Card.Title>
-                  { userAuthenticData?.permissionId?.coachingCreate === true ? 
+                  {/* { userAuthenticData?.permissionId?.coachingCreate === true ? 
                     <Button
                     onClick={() => {
                       setAddShow(true);
                     }}
                     className="yellow-bg m-0"
                   >
-                    <span>Coach</span>
+                    <span>ADD</span>
                     <span className="pl-1">
-                      <FontAwesomeIcon icon={faUserPlus} />
+                      <FontAwesomeIcon icon={faPlus} />
                     </span>
-                  </Button> : ""}
+                  </Button> : ""} */}
                 </div>
                 <Card.Body className="table-full-width">
                   <div className=" table-responsive">
@@ -410,7 +410,7 @@ useEffect(() => {
                         <tr>
                           <th className="text-center td-start">#</th>
                           <th className="td-image">Image</th>
-                          <th className="td-name">COACHNAME</th>
+                          <th className="td-name">NAME</th>
                           <th className="td-email">Email</th>
                           <th className="td-email">MemberShip</th>
                           <th className="td-address">Address</th>
@@ -531,8 +531,8 @@ useEffect(() => {
                         ) : (
 
                           <tr>
-                            <td colSpan="8" className="text-center">
-                              <span className="no-data-found d-block">No Users found</span>
+                            <td colSpan="9" className="text-center">
+                              <span className="no-data-found d-block">No Dietitian found</span>
                             </td>
                           </tr>
                         )}
@@ -571,7 +571,7 @@ useEffect(() => {
             }}
           >
             <Modal.Header closeButton>
-              <Modal.Title className="yellow-color">Add Coach</Modal.Title>
+              <Modal.Title className="yellow-color">Add Dietitian</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Form.Group className="mb-3">

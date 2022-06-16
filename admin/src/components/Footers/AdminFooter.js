@@ -46,7 +46,7 @@ function AdminFooter() {
             </ul> */}
             <p className="copyright text-center">
               © <script>document.write(new Date().getFullYear())</script>
-              <a href="">HealthiWealthi</a>, made with
+              <a href="">Dietitian You Way</a>, made with
               love for a better web
             </p>
           </nav>

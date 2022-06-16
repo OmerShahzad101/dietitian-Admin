@@ -30,7 +30,8 @@ const Blog = (props) => {
         statusValue: searchQuery.get("name"),
     });
     useEffect(() => {
-        toast.dismiss();
+        debugger
+    toast.dismiss();
         props.beforeBlog()
         window.scroll(0, 0);
         props.listBlog()
@@ -39,6 +40,7 @@ const Blog = (props) => {
     useEffect(() => {
         if (props.blog.blogListAuth) {
             const { blogList, pagination } = props.blog
+            console.log(props,"props")
             setBlog(blogList)
             setPagination(pagination)
         }
@@ -191,12 +193,12 @@ const Blog = (props) => {
                             <Col md="12">
                                 <Card className="table-big-boy">
                                     <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
-                                        <Card.Title as="h4">Blogs</Card.Title>
+                                        <Card.Title as="h4">Blogs Management</Card.Title>
                                         {
                                             userAuthenticData?.permissionId?.blogCreate ? 
                                             <Button onClick={() => history.push(`/blog/create`)} className="yellow-bg m-0">
                                             <span>
-                                                Blog
+                                                ADD
                                             </span>
                                             <span className="pl-1">
                                                 <FontAwesomeIcon icon={faPlus} />
@@ -213,6 +215,7 @@ const Blog = (props) => {
                                                         <th className="text-center td-start">#</th>
                                                         <th className="td-name">Image</th>
                                                         <th className="td-name">NAME</th>
+                                                        <th className="td-name">Category</th>
                                                         <th className="td-status">Excerpt</th>
                                                         <th className="td-name">Status</th>
                                                         {userAuthenticData?.permissionId?.blogEdit||userAuthenticData?.permissionId?.blogDelete ?<th className="td-actions">Action</th> : ""}
@@ -237,6 +240,9 @@ const Blog = (props) => {
                                                                         </td>
                                                                         <td className="td-name">
                                                                             {blog?.title}
+                                                                        </td>
+                                                                        <td className="td-name">
+                                                                            {blog?.categorylist[0]?.title}
                                                                         </td>
                                                                         <td className="td-name">
                                                                             {blog?.excerpt}
