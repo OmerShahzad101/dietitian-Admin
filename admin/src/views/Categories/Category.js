@@ -209,7 +209,7 @@ const Category = (props) => {
                                                                 <td className="td-image">
                                                                     <div className="user-image">
                                                                         <img
-                                                                            src= { !data.image ? imagePlaceholder : `${ENV.Backend_Img_Url}${data.image}` }
+                                                                            src= { !data?.image ? imagePlaceholder : `${ENV.Backend_Img_Url}${data?.image}` }
                                                                             alt="userImage"
                                                                             className="img-fluid"
                                                                         >
@@ -223,8 +223,8 @@ const Category = (props) => {
                                                                     {data?.email}
                                                                 </td>
                                                                 <td className="td-status">
-                                                                    <span className={`status p-1 ${data.status ? `bg-success` : `bg-danger`}`}>
-                                                                        {data.status ? "active" : "inactive"}
+                                                                    <span className={`status p-1 ${data?.status ? `bg-success` : `bg-danger`}`}>
+                                                                        {data?.status ? "active" : "inactive"}
                                                                     </span>
                                                                 </td>
                                                                 <td className="td-actions">
