@@ -54,6 +54,10 @@ exports.list = async (req, res, next) => {
           as: "categorylist",
         },
       },
+      {$unwind: {
+        path: "$categorylist",
+        preserveNullAndEmptyArrays: true,
+      },}
     ]);
     return res.send({
       success: true,
