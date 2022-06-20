@@ -32,7 +32,7 @@ const CoachMembershipView = (props) => {
 
     const submitEdit = (e) => {
         e.preventDefault();
-        history.push('/coachmembership')
+        history.push('/dietitianmembership')
     }
 
     return (

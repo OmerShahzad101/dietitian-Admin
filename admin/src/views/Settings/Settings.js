@@ -72,11 +72,11 @@ const Settings = (props) => {
                     <Container>
                         <Form className="form" onSubmit={(e) => submitEdit(e)}>
                             <Row>
-                            <Col md="8" sm="5">
+                            <Col md="12" sm="5">
                                 <Card className="pb-4">
                                     <Card.Header>
                                     <Card.Header className="pl-0">
-                                        <Card.Title as="h4" className="yellow-color">Settings</Card.Title>
+                                        <Card.Title as="h4" className="yellow-color">Social Data</Card.Title>
                                     </Card.Header>
                                     </Card.Header>
                                     <Card.Body>
@@ -130,8 +130,8 @@ const Settings = (props) => {
                                             </Col>
                                             <Col md="6">
                                                 <Form.Group>
-                                                    <label>Discord</label>
-                                                    <Form.Control placeholder="Discord" value={stateData?.discord} onChange={(e) => 
+                                                    <label>Linkedin</label>
+                                                    <Form.Control placeholder="Linkedin" value={stateData?.discord} onChange={(e) => 
                                                         setStateData({ ...stateData, discord: e.target.value })}type="text">
                                                     </Form.Control>
                                                 </Form.Group>
@@ -149,8 +149,8 @@ const Settings = (props) => {
                                             </Col>
                                             <Col md="6">
                                                 <Form.Group>
-                                                    <label>Telgram</label>
-                                                    <Form.Control placeholder="Telegram" value={stateData?.telegram} onChange={(e) => 
+                                                    <label>Instagram</label>
+                                                    <Form.Control placeholder="Instagram" value={stateData?.telegram} onChange={(e) => 
                                                         setStateData({ ...stateData, telegram: e.target.value })}type="text">
                                                     </Form.Control>
                                                 </Form.Group>
@@ -171,7 +171,7 @@ const Settings = (props) => {
                                 </Card>
                             </Col>
                             </Row>
-                            <Row>
+                            {/* <Row>
                                 <Col md="11" sm="6">
                                     <Card className="pb-4">
                                         <Card.Body>
@@ -194,7 +194,7 @@ const Settings = (props) => {
                                         </Card.Body>
                                     </Card>
                                 </Col>
-                            </Row>
+                            </Row> */}
                             <Button className="btn-fill pull-right yellow-bg" type="submit" variant="info" >
                                 Update Changes
                             </Button>

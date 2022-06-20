@@ -36,7 +36,7 @@ const CoachMembershipEdit = (props) => {
         props.updateCoachMembership(editCoachMembership);
         setEditCoachMembership(null)
         props.beforeCoachMembership()
-        history.push('/coachmembership')
+        history.push('/dietitianmembership')
     }
 
     return (

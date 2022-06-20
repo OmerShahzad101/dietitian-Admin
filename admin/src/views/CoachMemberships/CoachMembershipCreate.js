@@ -47,7 +47,7 @@ const CoachMembershipCreate = (props) => {
             setAddCoachMembership({
                 status: true,
             })
-            history.push('/coachmembership')
+            history.push('/dietitianmembership')
         }
     }
 

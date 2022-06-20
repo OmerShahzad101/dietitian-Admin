@@ -48,20 +48,20 @@ const PathScanner = (array) => {
       const fourthlastIndex = path[pathlastLength-4]
       const fifthlastindex = path[pathlastLength-5]
       if(( lastindexpath === 24 &&  secondlastindexpath == '/' && fourthlastIndex === '/' && ( thirdlastindexpath === 'edit' ||  thirdlastindexpath === 'view')) && 
-        ( fifthlastindex === 'blog' || fifthlastindex === 'category' || fifthlastindex === 'services' || fifthlastindex === 'cms' || fifthlastindex === 'coaches' 
-        || fifthlastindex === 'schedular' || fifthlastindex === 'view' || fifthlastindex === 'coachmembership' 
-        || fifthlastindex === 'membermembership'))
+        ( fifthlastindex === 'blog' || fifthlastindex === 'category' || fifthlastindex === 'cms' || fifthlastindex === 'coaches' 
+         || fifthlastindex === 'view' || fifthlastindex === 'dietitianmembership' 
+        ))
         {
             path[pathlastLength-1] = 'id';
             path[pathlastLength-2] = '/:';
             url = path.join('')
         } 
-        console.log(lastindexpath,"lastindexpath")
-      console.log(secondlastindexpath,"secondlastindexpath")
-      console.log(thirdlastindexpath,"thirdlastindexpath")
-      console.log(fourthlastIndex,"fourthlastIndex")
-      console.log(fifthlastindex,"fifthlastindex")
-      console.log(url,"url")
+    //     console.log(lastindexpath,"lastindexpath")
+    //   console.log(secondlastindexpath,"secondlastindexpath")
+    //   console.log(thirdlastindexpath,"thirdlastindexpath")
+    //   console.log(fourthlastIndex,"fourthlastIndex")
+    //   console.log(fifthlastindex,"fifthlastindex")
+    //   console.log(url,"url")
 
     return url;
 }

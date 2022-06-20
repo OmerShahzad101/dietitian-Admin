@@ -41,14 +41,14 @@ const Permissions = (props) => {
     coachMemberShipEdit: false,
     coachMemberShipDelete: false,
     //user memebership management
-    userMemberShipCreate: false,
-    userMemberShipView: false,
-    userMemberShipEdit: false,
-    userMemberShipDelete: false,
+    // userMemberShipCreate: false,
+    // userMemberShipView: false,
+    // userMemberShipEdit: false,
+    // userMemberShipDelete: false,
     //usermembership record
-    userMembershipRecordCreate: false,
-    userMembershipRecordView: false,
-    userMembershipRecordEdit: false,
+    // userMembershipRecordCreate: false,
+    // userMembershipRecordView: false,
+    // userMembershipRecordEdit: false,
     //usermembership record
     coachMembershipRecordCreate: false,
     coachMembershipRecordView: false,
@@ -69,10 +69,10 @@ const Permissions = (props) => {
     coachingEdit: false,
     coachingDelete: false,
     //services
-    servicesCreate: false,
-    servicesView: false,
-    servicesEdit: false,
-    servicesDelete: false,
+    // servicesCreate: false,
+    // servicesView: false,
+    // servicesEdit: false,
+    // servicesDelete: false,
     //content
     contentCreate: false,
     contentView: false,
@@ -594,7 +594,7 @@ const Permissions = (props) => {
                   />
                 </div>
               </Form.Group>
-              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+              {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Member Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
@@ -614,11 +614,11 @@ const Permissions = (props) => {
                     onChange={(e) => { setpermissions({ ...permissions, userDelete: e.target.checked }) }}
                   />
                 </div>
-              </Form.Group>
+              </Form.Group> */}
               {/* //Coaching */}
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
 
-                <Form.Label>Coach Management</Form.Label>
+                <Form.Label>Dietitian Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
                   <input type="checkbox" checked={permissions.coachingCreate ? true : false}
@@ -639,7 +639,7 @@ const Permissions = (props) => {
                 </div>
               </Form.Group>
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
-                <Form.Label>Coach Membership Management</Form.Label>
+                <Form.Label>Dietitian Membership Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
                   <input type="checkbox" checked={permissions.coachMemberShipCreate ? true : false}
@@ -660,7 +660,7 @@ const Permissions = (props) => {
                   />
                 </div>
               </Form.Group>
-              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+              {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Users Membership Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
@@ -681,10 +681,10 @@ const Permissions = (props) => {
                     onChange={(e) => { setpermissions({ ...permissions, userMemberShipDelete: e.target.checked }) }}
                   />
                 </div>
-              </Form.Group>
+              </Form.Group> */}
 
               {/* usermembership */}
-              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+              {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Member Membership Record</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
@@ -700,10 +700,10 @@ const Permissions = (props) => {
                     onChange={(e) => { setpermissions({ ...permissions, userMembershipRecordEdit: e.target.checked }) }}
                   />
                 </div>
-              </Form.Group>
+              </Form.Group> */}
 
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
-                <Form.Label>Coach Membership Record</Form.Label>
+                <Form.Label>Dietitian Membership Record</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
                   <input type="checkbox" checked={permissions.coachMembershipRecordCreate ? true : false}
@@ -721,7 +721,7 @@ const Permissions = (props) => {
               </Form.Group>
               {/* //BLOG */}
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
-                <Form.Label>BLOG Management</Form.Label>
+                <Form.Label>Blog Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
                   <input type="checkbox" checked={permissions.blogCreate ? true : false}
@@ -764,7 +764,7 @@ const Permissions = (props) => {
                 </div>
               </Form.Group>
 {/* //SERVICES */}
-              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+              {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
               <Form.Label>Services Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
@@ -784,7 +784,7 @@ const Permissions = (props) => {
                     onChange={(e) => { setpermissions({ ...permissions, servicesDelete: e.target.checked }) }}
                   />
                 </div>
-              </Form.Group>
+              </Form.Group> */}
             
               {/* //Content */}
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
@@ -811,7 +811,7 @@ const Permissions = (props) => {
               </Form.Group>
               
               {/* //Review */}
-              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+              {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Review Management</Form.Label>
                 <div >
                   <Form.Label>View</Form.Label>
@@ -827,9 +827,9 @@ const Permissions = (props) => {
                     onChange={(e) => { setpermissions({ ...permissions, reviewDelete: e.target.checked }) }}
                   />
                 </div>
-              </Form.Group>
+              </Form.Group> */}
               {/* //Review */}
-              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+              {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Email Template Management</Form.Label>
                 <div >
                   <Form.Label>View</Form.Label>
@@ -845,9 +845,9 @@ const Permissions = (props) => {
                     onChange={(e) => { setpermissions({ ...permissions, emailTemplateDelete: e.target.checked }) }}
                   />
                 </div>
-              </Form.Group>
+              </Form.Group> */}
               {/* //Role */}
-              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+              {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Role Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
@@ -867,9 +867,9 @@ const Permissions = (props) => {
                     onChange={(e) => { setpermissions({ ...permissions, roleDelete: e.target.checked }) }}
                   />
                 </div>
-              </Form.Group>
+              </Form.Group> */}
                 {/* //MemberShip */}
-                <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Notifications</Form.Label>
                   <div >
                     <Form.Label>View</Form.Label>
@@ -877,7 +877,7 @@ const Permissions = (props) => {
                       onChange={(e) => { setpermissions({ ...permissions, notificationsView: e.target.checked }) }}
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
               {/* //Payments */}
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
 
@@ -890,7 +890,7 @@ const Permissions = (props) => {
                 </div>
               </Form.Group>
               {/* //thirdpart */}
-              <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+              {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
 
                 <Form.Label>Third Party</Form.Label>
                 <div >
@@ -899,10 +899,10 @@ const Permissions = (props) => {
                     onChange={(e) => { setpermissions({ ...permissions, thirdPartyEdit: e.target.checked }) }}
                   />
                 </div>
-              </Form.Group>
+              </Form.Group> */}
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
 
-                <Form.Label>Contact US Queries</Form.Label>
+                <Form.Label>Contact Us</Form.Label>
                 <div >
                   <Form.Label>View</Form.Label>
                   <input type="checkbox" checked={permissions.contactUsQueriesView ? true : false}
@@ -912,7 +912,7 @@ const Permissions = (props) => {
               </Form.Group>
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
 
-                <Form.Label>Settings</Form.Label>
+                <Form.Label>Social Links</Form.Label>
                 <div >
                   <Form.Label>View</Form.Label>
                   <input type="checkbox" checked={permissions.settingsView ? true : false}
@@ -925,7 +925,7 @@ const Permissions = (props) => {
                 </div>
               </Form.Group>
               <Form.Group className="switch-wrapper mb-3">
-                <span className="d-block mb-2">Status</span>
+                <span className="d-block mb-2 form-label">Status</span>
                 <label class="switch">
                   <input type="checkbox" name="status" checked={permissions.status ? true : false}
                     onChange={(e) => { setpermissions({ ...permissions, status: e.target.checked }); }}
@@ -1000,7 +1000,7 @@ const Permissions = (props) => {
                   </div>
                 </Form.Group>
                  {/* //User */}
-                <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Member Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
@@ -1020,7 +1020,7 @@ const Permissions = (props) => {
                     onChange={(e) => { seteditPermissions({ ...editPermissions, userDelete: e.target.checked }); }}
                   />
                 </div>
-                </Form.Group>
+                </Form.Group> */}
                  {/* //User */}
                  <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Permissions Management</Form.Label>
@@ -1045,7 +1045,7 @@ const Permissions = (props) => {
                 </Form.Group>
                 {/* //Coaching */}
                 <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
-                  <Form.Label>Coaching Management</Form.Label>
+                  <Form.Label>Dietitian Management</Form.Label>
                   <div >
                     <Form.Label>Create</Form.Label>
                     <input type="checkbox" name="coachingCreate" checked={editPermissions.coachingCreate ? true : false}
@@ -1066,7 +1066,7 @@ const Permissions = (props) => {
                   </div>
                 </Form.Group>
                 {/* //usercoachShip */}
-                <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Member Membership Record</Form.Label>
                   <div >
                     <Form.Label>Create</Form.Label>
@@ -1082,7 +1082,7 @@ const Permissions = (props) => {
                       onChange={(e) => { seteditPermissions({ ...editPermissions, userMembershipRecordEdit: e.target.checked }); }}
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
                 {/* //usercoachShip */}
                 <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Coach Membership Record</Form.Label>
@@ -1104,7 +1104,7 @@ const Permissions = (props) => {
                 </Form.Group>
                       {/* //BLOG */}
               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
-                <Form.Label>BLOG Management</Form.Label>
+                <Form.Label>Blog Management</Form.Label>
                 <div >
                   <Form.Label>Create</Form.Label>
                   <input type="checkbox" checked={editPermissions.blogCreate ? true : false}
@@ -1147,7 +1147,7 @@ const Permissions = (props) => {
                 </div>
               </Form.Group>
                   {/* //Content */}
-                  <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                  {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Services Management</Form.Label>
                   <div >
                     <Form.Label>Create</Form.Label>
@@ -1167,7 +1167,7 @@ const Permissions = (props) => {
                       onChange={(e) => { seteditPermissions({ ...editPermissions, servicesDelete: e.target.checked }); }}
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
                 {/* //Content */}
                 <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Content Management</Form.Label>
@@ -1191,7 +1191,7 @@ const Permissions = (props) => {
                   </div>
                 </Form.Group>
                 {/* //Review */}
-                <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Review Management</Form.Label>
                   <div >
                     <Form.Label>View</Form.Label>
@@ -1207,9 +1207,9 @@ const Permissions = (props) => {
                       onChange={(e) => { seteditPermissions({ ...editPermissions, reviewDelete: e.target.checked }); }}
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
                  {/* //Review */}
-                 <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                 {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Email Template Management</Form.Label>
                   <div >
                     <Form.Label>View</Form.Label>
@@ -1225,9 +1225,9 @@ const Permissions = (props) => {
                       onChange={(e) => { seteditPermissions({ ...editPermissions, emailTemplateDelete: e.target.checked }); }}
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
                 {/* //Role */}
-                <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Role Management</Form.Label>
                   <div >
                     <Form.Label>Create</Form.Label>
@@ -1247,9 +1247,9 @@ const Permissions = (props) => {
                       onChange={(e) => { seteditPermissions({ ...editPermissions, roleDelete: e.target.checked }); }}
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
                {/* //MemberShip */}
-               <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+               {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                 <Form.Label>Notifications</Form.Label>
                 <div >
                   <Form.Label>View</Form.Label>
@@ -1257,7 +1257,7 @@ const Permissions = (props) => {
                     onChange={(e) => { seteditPermissions({ ...editPermissions, notificationsView: e.target.checked }); }}
                   />
                 </div>
-                </Form.Group>
+                </Form.Group> */}
                 {/* //Payments */}
                 <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Payments</Form.Label>
@@ -1269,7 +1269,7 @@ const Permissions = (props) => {
                   </div>
                 </Form.Group>
                 {/* //thirdpart */}
-                <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
+                {/* <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
                   <Form.Label>Third Party</Form.Label>
                   <div >
                     <Form.Label>Edit</Form.Label>
@@ -1277,9 +1277,9 @@ const Permissions = (props) => {
                       onChange={(e) => { seteditPermissions({ ...editPermissions, thirdPartyEdit: e.target.checked }); }}
                     />
                   </div>
-                </Form.Group>
+                </Form.Group> */}
                 <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
-                <Form.Label>Contact US Queries</Form.Label>
+                <Form.Label>Contact Us</Form.Label>
                 <div >
                   <Form.Label>View</Form.Label>
                   <input type="checkbox" checked={editPermissions.contactUsQueriesView ? true : false}
@@ -1288,7 +1288,7 @@ const Permissions = (props) => {
                 </div>
                 </Form.Group>
                 <Form.Group className="mb-3 flex-wrapp d-flex justify-content-between align-items-center">
-                <Form.Label>Settings</Form.Label>
+                <Form.Label>Social Links</Form.Label>
                 <div >
                   <Form.Label>View</Form.Label>
                   <input type="checkbox" checked={editPermissions.settingsView ? true : false}
@@ -1301,7 +1301,7 @@ const Permissions = (props) => {
                 </div>
                 </Form.Group>
                 <Form.Group className="switch-wrapper mb-3">
-                  <span className="d-block mb-2">Status</span>
+                  <span className="d-block mb-2 form-label">Status</span>
                   <label className="switch">
                     <input type="checkbox" name="status" checked={editPermissions.status ? true : false}
                       onChange={(e) => { seteditPermissions({ ...editPermissions, status: e.target.checked }); }}
