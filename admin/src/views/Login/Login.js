@@ -106,7 +106,7 @@ function Login(props) {
                                                         <Form.Check className="pl-0">
                                                         </Form.Check>
                                                         <NavLink to="/forgotpassword" className="btn-no-bg" type="submit" variant="warning">
-                                                            Forgot Password ?
+                                                            Forget Password ?
                                                         </NavLink>
                                                     </div>
                                                 </Card.Body>

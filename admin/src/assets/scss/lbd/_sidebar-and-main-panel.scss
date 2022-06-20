@@ -283,11 +283,22 @@
                 }
 
                 i{
-                    font-size: 20px;
-                    width: 30px;
+                    font-size: 24px;
+                    width: 45px;
                     text-align: center;
                     vertical-align: middle;
                     float: left;
+                    color: #4a4a4a;
+                }
+            }
+            .collapse, .collapsed, .collapsing{
+                .nav{
+                    .nav-item{
+                        i{
+                            font-size: 17px;
+                        }
+                    }
+
                 }
             }
 

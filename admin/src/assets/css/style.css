@@ -369,3 +369,19 @@ input{color: #4a4a4a !important;}
 }
 .url-click-link{  pointer-events: none;}
 .alertdiv{height:10px;width:100%;background:white;border:2px solid grey;position: relative;}
+
+
+.permissions_main input[type=checkbox]{
+  position: relative;
+  width: 15px;
+  height: 30px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 550px;
+    margin: 1.75rem auto;
+}
+}

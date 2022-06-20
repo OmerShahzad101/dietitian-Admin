@@ -307,7 +307,7 @@ const Permissions = (props) => {
     <>
       {
         loader ? <FullPageLoader /> :
-          <Container fluid>
+          <Container fluid >
             <Row>
               <Col md={12}>
                 <Card.Header className="mb-5 head-grid">
@@ -526,7 +526,7 @@ const Permissions = (props) => {
       {/* ///addshow modal */}
       {
         addShow &&
-        <Modal show={addShow} onHide={() => {
+        <Modal className='permissions_main' show={addShow} onHide={() => {
           setaddShow(false)
         }}>
           <Form onSubmit={addPermsissions} >
@@ -949,7 +949,7 @@ const Permissions = (props) => {
       {/* ///editShow modal */}
       {
         editshow &&
-        <Modal show={editshow} onHide={() => {
+        <Modal className='permissions_main' show={editshow} onHide={() => {
           setEditShow(false);
         }}>
           <Form onSubmit={onEditPermissions} >
