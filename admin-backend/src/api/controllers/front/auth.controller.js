@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
-//const baseURL = "http://localhost:3000/";
-const baseURL = "https://healthiwealthi.arhamsoft.org/";
+const baseURL = "http://localhost:3000/";
+// const baseURL = "https://healthiwealthi.arhamsoft.org/";
 
 const { response } = require("express");
 const User = require("../../models/users.model");
@@ -239,10 +239,10 @@ exports.forgotPassword = async (req, res) => {
       });
     }
 
-    var accessToken = await userWithEmail.token();
+    // var accessToken = await userWithEmail.token();
     let data = {
       ...userWithEmail._doc,
-      accessToken,
+      // accessToken,
     };
 
     sendPasswordResetEmail(data);
@@ -262,72 +262,17 @@ exports.forgotPassword = async (req, res) => {
  */
 exports.setPassword = async (req, res) => {
   try {
-    const { token } = req.params;
-    const { password, confirmPassword } = req.body;
-    let userId = "";
-
-    if (!password) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Password is required" });
-    }
-    if (!confirmPassword) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Please confirm password required" });
-    }
-    if (password !== confirmPassword) {
-      return res.status(400).json({
-        success: false,
-        message: "Password and confirm password do not match",
-      });
-    }
-    if (password.length < 6 || password.length > 15) {
-      return res.status(400).json({
-        success: false,
-        message:
-          "Password can not be less than 6 and greater and 15 characters",
-      });
-    }
-
-    await jwt.verify(token, pwEncruptionKey, async (err, authorizedData) => {
-      if (err) {
-        flag = false;
-        const message = "session_expired_front_error";
-        return res.send({ success: false, userDisabled: true, message, err });
-      } else {
-        userId = authorizedData.sub;
-      }
-    });
-
-    if (userId) {
-      const userObj = await User.findOne({ _id: userId }).exec();
-
+    const payload = req.body;
+    console.log(payload, "payload");
+    if (_id) {
+      const userObj = await User.findOne({ _id: id }).exec();
       if (userObj) {
-        if (userObj.verifyPassword(password)) {
-          return res.status(200).send({
-            success: false,
-            message: "Your new password cannot be the same as old!",
-          });
-        }
-
-        // Hash the new password and save it
-
         const hash = await userObj.getPasswordHash(password);
-
         try {
           const user = await User.updateOne(
-            { _id: userId },
+            { _id: id },
             { $set: { isEmailVerified: true, emailToken: "", password: hash } }
           ).exec();
-
-          if (!user) {
-            return res.status(200).json({
-              success: false,
-              message: "Change Password Link Expired!",
-            });
-          }
-
           return res
             .status(200)
             .json({ success: true, message: "Password Changed Successfully!" });
@@ -337,20 +282,17 @@ exports.setPassword = async (req, res) => {
             message: err.message,
           });
         }
-      } else {
-        return res
-          .status(200)
-          .json({ success: false, message: "Change Password Link Expire !" });
       }
     } else {
-      return res
-        .status(200)
-        .json({ success: false, message: "Change Password Link Expire !" });
+      return res.status(400).send({
+        success: false,
+        message: "not found",
+      });
     }
   } catch (e) {
     return res
-      .status(200)
-      .json({ success: false, message: "Change Password Link Expire !" });
+      .status(400)
+      .json({ success: false, message: "something went wrong" });
   }
 };
 /**
@@ -410,7 +352,7 @@ function sendPasswordResetEmail(userObj) {
   const { _id, email, accessToken } = userObj;
   const subject = "Forget Password!";
   const to = email;
-  const url = `${baseURL}reset-password/${accessToken}`;
+  const url = `${baseURL}reset-password/${_id}`;
   const emailBody = resetPasswordEmailTemplate.replace("{{url}}", url);
   SendEmail(to, subject, emailBody);
 }
@@ -502,9 +444,9 @@ exports.verify = async (req, res, next) => {
     const googleAccessToken = req.body;
     console.log(req.body);
     var user = await User.findOne(googleAccessToken);
-    console.log(user)
+    console.log(user);
 
-    var accessToken = user.token()
+    var accessToken = user.token();
     if (!user) {
       return res.send({
         success: false,
@@ -515,7 +457,7 @@ exports.verify = async (req, res, next) => {
       success: true,
       message: " Successfully",
       user,
-      accessToken
+      accessToken,
     });
   } catch (error) {
     if (error.code === 11000 || error.code === 11001)

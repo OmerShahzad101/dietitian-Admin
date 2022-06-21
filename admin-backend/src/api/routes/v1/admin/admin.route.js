@@ -11,7 +11,7 @@ router.route('/get/:adminId').get(controller.get)
 router.route('/list').get(controller.list)
 router.route('/edit-password').put(cpUpload, controller.editPassword)
 router.route('/forgot-password').post(controller.forgotPassword)
-router.route('/reset-password').put(cpUpload, controller.resetPassword)
+router.route('/reset-password').post(controller.resetPassword)
 router.route('/private-admin').post(controller.privateAdmin)
 
 module.exports = router
