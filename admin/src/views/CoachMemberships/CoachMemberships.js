@@ -242,7 +242,6 @@ const CoachMembership = (props) => {
                           <th className="text-center td-start">#</th>
                           <th className="td-address">TITLE</th>
                           <th className="td-name">DESCRIPTION</th>
-                          <th className="td-name">MEMBERSHIP INFORMATION</th>
                           <th className="td-description text-center">
                             {" "}
                             MEMBERSHIP PERIOD (Months)
@@ -264,6 +263,7 @@ const CoachMembership = (props) => {
                       <tbody>
                         {coachMemberships && coachMemberships.length ? (
                           coachMemberships.map((data, index) => {
+                            {console.log(data?.period)}
                             return (
                               <tr key={index}>
                                 <td className="td-start text-center">
@@ -283,83 +283,6 @@ const CoachMembership = (props) => {
                                       __html: data?.description,
                                     }}
                                   />
-                                </td>
-                                <td className="td-tags">
-                                  {data?.businessPractise ? (
-                                    <span className="lable-info">
-                                      All-In-One Business/Practice Platform
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.onBoardTraining ? (
-                                    <span className="lable-info">
-                                      {" "}
-                                      Free onboarding training
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.healthMarketing ? (
-                                    <span className="lable-info">
-                                      Platform, marketing & health coaching
-                                      training with certification
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.personalPlatform ? (
-                                    <span className="lable-info">
-                                      Personal platform link & page (like
-                                      .healthiwealthi.io/ID)
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.onePageDashboard ? (
-                                    <span className="lable-info">
-                                      One page dashboard
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.clientAccessList ? (
-                                    <span className="lable-info">
-                                      {" "}
-                                      Client access list (with icons to chat,
-                                      talk or email each client easily){" "}
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.HipaaSocial ? (
-                                    <span className="lable-info">
-                                      {" "}
-                                      HIPAA compliant video/audio/chat (for
-                                      personal consultations){" "}
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.hipaaGroupCoaching ? (
-                                    <span className="lable-info">
-                                      {" "}
-                                      HIPAA compliant group coaching
-                                      video/audio/chat (for large groups){" "}
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {!(
-                                    data?.["businessPractise"] ||
-                                    data?.["onBoardTraining"] ||
-                                    data?.["healthMarketing"] ||
-                                    data?.["personalPlatform"] ||
-                                    data?.["onePageDashboard"] ||
-                                    data?.["clientAccessList"] ||
-                                    data?.["HipaaSocial"] ||
-                                    data?.["hipaaGroupCoaching"]
-                                  ) && "N/A"}
                                 </td>
                                 <td className="td-periods text-center">
                                   {data?.period / 30}
