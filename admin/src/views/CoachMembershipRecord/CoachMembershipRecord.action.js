@@ -20,7 +20,7 @@ export const listCoachMembership = (qs = null) => dispatch => {
         }
     }).then(res => res.json()).then(data => {
         if (data.success) {
-            if (!qs) toast.success(data.message);
+           
             dispatch({
                 type: COACHRECORD_LIST,
                 payload: data.data,

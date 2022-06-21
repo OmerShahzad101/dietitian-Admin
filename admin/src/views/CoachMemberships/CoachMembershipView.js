@@ -32,7 +32,7 @@ const CoachMembershipView = (props) => {
 
     const submitEdit = (e) => {
         e.preventDefault();
-        history.push('/coachmembership')
+        history.push('/dietitianmembership')
     }
 
     return (
@@ -66,7 +66,7 @@ const CoachMembershipView = (props) => {
                                 }}
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3">
+                        {/* <Form.Group className="mb-3">
                             <Form.Label>Coach Membership Management</Form.Label>
                             <Row>
                                 <div className='chbox-div'>
@@ -125,24 +125,18 @@ const CoachMembershipView = (props) => {
                                        disabled />
                                 </div>
                             </Row>
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group className="mb-3">
                             <Form.Label>Price (USD)</Form.Label>
                             <Form.Control type="number" placeholder="USD" min="0" name="price In USD" value={editCoachMembership?.priceInUSD} disabled/>
                         </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Price (RxHEAL)</Form.Label>
-                            <Form.Control type="number" placeholder="Crypto" min="0" name="price In Crypto" value={editCoachMembership?.priceInCrypto} disabled/>
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Session Extend Price</Form.Label>
-                            <Form.Control type="number" placeholder="USD" min="0" name="session extend price" value={editCoachMembership?.sessionExtendPrice} disabled />
-                        </Form.Group>
+                    
+                      
                         <Form.Group>
                         <Form.Label>Membership Period </Form.Label>
                         <Form.Control type="number" placeholder="Enter Months..." min="1" name="membership Period" value={editCoachMembership?.period} disabled/>
                         </Form.Group>
-                        <Form.Group>
+                        {/* <Form.Group>
                             <Form.Label>Consultations</Form.Label>
                             <select className='form-control form-select' disabled>
                                 <option value={1} selected={editCoachMembership.consultations === 1 ? 'selected' : ''}>1</option>
@@ -151,9 +145,9 @@ const CoachMembershipView = (props) => {
                                 <option value={4} selected={editCoachMembership.consultations === 4 ? 'selected' : ''}>4</option>
                                 <option value={5} selected={editCoachMembership.consultations === 5 ? 'selected' : ''}>5</option>
                             </select>
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group className="switch-wrapper mb-3">
-                            <span className="d-block mb-2">Status</span>
+                            <span className="d-block mb-2 ip-lable">Status</span>
                             <label className="switch">
                                 <input type="checkbox" name="status" checked={editCoachMembership.status ? true : false} disabled />
                                 <span className="slider round"></span>

@@ -66,13 +66,13 @@ function Login(props) {
                             <Container>
                                 <Col className="mx-auto" lg="4" md="8">
                                 </Col>
-                                <Col className="mx-auto" lg="4" md="8">
+                                <Col className="mx-auto" lg="5" md="8">
                                     <Form action="" className="form" method="">
                                         <Card className="card-login">
-                                        <div className='login-logo text-center mb-4'>
-                                       <div className='logo'>
-                                       <img className='logo-login img-fluid'
-                                            src={require("assets/img/favicon.svg").default}
+                                        <div className='text-center mb-4'>
+                                       <div className=''>
+                                       <img className='img-fluid'
+                                            src={require("assets/img/favicon.png").default}
                                             alt="Dietitian Your Way"
                                         />
                                        </div>
@@ -106,7 +106,7 @@ function Login(props) {
                                                         <Form.Check className="pl-0">
                                                         </Form.Check>
                                                         <NavLink to="/forgotpassword" className="btn-no-bg" type="submit" variant="warning">
-                                                            Forgot Password ?
+                                                            Forget Password ?
                                                         </NavLink>
                                                     </div>
                                                 </Card.Body>

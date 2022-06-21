@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 
-import logoLogin from "assets/img/favicon.svg";
+import logoLogin from "assets/img/favicon.png";
 
 
 function ForgotPassword(props) {
@@ -68,11 +68,11 @@ function ForgotPassword(props) {
                 <img src={logoLogin} alt="logo" className='logo-login' />
               </div>
             </Col> */}
-            <Col className="mx-auto" lg="4" md="8">
+            <Col className="mx-auto" lg="5" md="8">
               <Form action="" className="form" method="">
                 <Card className={"card-login " + cardClasses}>
-                <div className='login-logo text-center'>
-                <img src={logoLogin} alt="logo" className='logo-login' />
+                <div className='text-center'>
+                <img src={logoLogin} alt="logo" className='img-fluid' />
               </div>
                   <Card.Header>
                     <h3 className="header text-center">Forgot Password</h3>

@@ -72,7 +72,7 @@ function Sidebar({ routes, image, background }) {
               aria-expanded={state[prop.state]}
             >
               <div className="d-flex">
-                <span className="nav-icon-holder ">
+                <span className="">
                   <i className={prop.icon}></i>
                 </span>
                 <p className="d-flex">
@@ -98,7 +98,7 @@ function Sidebar({ routes, image, background }) {
           >
             {prop.icon ? (
               <>
-                <span className="nav-icon-holder">
+                <span className="">
                   <i className={prop.icon} />
                 </span>
                 <p>{prop.name}</p>

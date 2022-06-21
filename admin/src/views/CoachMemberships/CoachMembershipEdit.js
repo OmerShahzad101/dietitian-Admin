@@ -36,7 +36,7 @@ const CoachMembershipEdit = (props) => {
         props.updateCoachMembership(editCoachMembership);
         setEditCoachMembership(null)
         props.beforeCoachMembership()
-        history.push('/coachmembership')
+        history.push('/dietitianmembership')
     }
 
     return (
@@ -74,7 +74,7 @@ const CoachMembershipEdit = (props) => {
                     }}
                 />
             </Form.Group>
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
             <Form.Label>Coach Membership Management</Form.Label>
                 <Row>
                     <div className='chbox-div'>
@@ -149,21 +149,18 @@ const CoachMembershipEdit = (props) => {
                         }} />
                     </div>
                </Row>
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group className="mb-3">
                 <Form.Label>Price (USD)</Form.Label>
                 <Form.Control type="number" placeholder="USD" min="0" name="price In USD" value={editCoachMembership?.priceInUSD} onChange={(e) => { setEditCoachMembership({ ...editCoachMembership, priceInUSD: e.target.value }) }} />
             </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Price (RxHEAL)</Form.Label>
-                <Form.Control type="number" placeholder="Crypto" min="0" name="price In Crypto" value={editCoachMembership?.priceInCrypto} onChange={(e) => { setEditCoachMembership({ ...editCoachMembership, priceInCrypto: e.target.value }) }} />
-            </Form.Group>
+         
             <Form.Group>
             <Form.Label className="mr-4">Membership Period</Form.Label>
                 <Form.Control type="number" placeholder="Enter Months..." min="1" name="membership Period" value={editCoachMembership?.period   } onChange={(e) => { 
                     setEditCoachMembership({ ...editCoachMembership, period:e.target.value }) }} />
             </Form.Group>
-            <Form.Group>
+            {/* <Form.Group>
             <Form.Label>Consultations</Form.Label>
                 <select className='form-control form-select' onChange={(e) => {
                     setEditCoachMembership({ ...editCoachMembership, consultations:e.target.value })
@@ -174,9 +171,9 @@ const CoachMembershipEdit = (props) => {
                         <option value={4} selected={editCoachMembership?.consultations === 4 ? 'selected' : ''}>4</option>
                         <option value={5} selected={editCoachMembership?.consultations === 5 ? 'selected' : ''}>5</option>
                 </select>
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group className="switch-wrapper mb-3">
-                <span className="d-block mb-2">Status</span>
+                <span className="d-block mb-2 ip-lable">Status</span>
                 <label style={{margin:0}} className="switch m-0">
                     <input type="checkbox" name="status" checked={editCoachMembership?.status ? true : false} onChange={(e) => {
                         setEditCoachMembership({ ...editCoachMembership, status: e.target.checked })
@@ -185,7 +182,7 @@ const CoachMembershipEdit = (props) => {
                 </label>
             </Form.Group>
             <Button variant="primary" type="submit" className="yellow-bg">
-                Edit Coach Membership
+                Edit Dietitian Membership
             </Button>
         </Form>}
         </Container>

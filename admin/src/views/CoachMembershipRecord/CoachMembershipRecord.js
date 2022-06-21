@@ -201,7 +201,7 @@ const CoachMembershipRecord = (props) => {
                             <Col md="12">
                                 <Card className="table-big-boy">
                                     <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
-                                        <Card.Title as="h4">Coach Memberships</Card.Title>
+                                        <Card.Title as="h4">Dietitian Membership Records</Card.Title>
                                     </div>
                                     <Card.Body className="table-full-width">
                                         <div className=' table-responsive'>
@@ -209,13 +209,12 @@ const CoachMembershipRecord = (props) => {
                                                 <thead>
                                                     <tr>
                                                         <th className="text-center td-start">#</th>
-                                                        <th className="text-center td-start">Coach Name</th>
+                                                        <th className="text-center td-start">Dietitian Name</th>
                                                         <th className="td-address">TITLE</th>
                                                         <th className="td-name">DESCRIPTION</th>
                                                         <th className="td-name">MEMBERSHIP INFORMATION</th>
                                                         <th className="td-description text-center"> MEMBERSHIP PERIOD (Months)</th>
                                                         <th className="td-name">PRICE IN USD</th>
-                                                        <th className="td-name">PRICE IN CRYPTO</th>
                                                         <th className="td-status">STATUS</th>
                                                         <th className="td-status">CREATED AT</th>
                                                         {userAuthenticData?.permissioId?.coachMembershipRecordEdit === true ? <th className="td-actions ">ACTION</th>:""}
@@ -257,9 +256,6 @@ const CoachMembershipRecord = (props) => {
                                                                         
                                                                         <td className="td-periods text-center">
                                                                             { data?.membershipData?.priceInUSD ? data?.membershipData?.priceInUSD : "N/A" }
-                                                                        </td>
-                                                                        <td className="td-periods text-center">
-                                                                            { data?.membershipData?.priceInCrypto ? data?.membershipData?.priceInCrypto  : "N/A" }
                                                                         </td>
                                                                         
                                                                         <td className="td-periods text-center">

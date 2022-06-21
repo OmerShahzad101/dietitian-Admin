@@ -215,15 +215,15 @@ const CoachMembership = (props) => {
             <Col md="12">
               <Card className="table-big-boy">
                 <div className="d-block  d-sm-flex justify-content-between align-items-center register-users">
-                  <Card.Title as="h4">Coach Memberships</Card.Title>
+                  <Card.Title as="h4">Dietitian Memberships</Card.Title>
                   {userAuthenticData?.permissionId?.coachMemberShipCreate ? (
                     <Button className="yellow-bg m-0">
                       <span
                         onClick={() =>{
                             debugger;
-                            history.push(`/coachmembership/create`)}}
+                            history.push(`/dietitianmembership/create`)}}
                       >
-                        Coach Membership
+                        ADD
                       </span>
                       <span className="pl-1">
                         <FontAwesomeIcon icon={faPlus} />
@@ -242,13 +242,11 @@ const CoachMembership = (props) => {
                           <th className="text-center td-start">#</th>
                           <th className="td-address">TITLE</th>
                           <th className="td-name">DESCRIPTION</th>
-                          <th className="td-name">MEMBERSHIP INFORMATION</th>
                           <th className="td-description text-center">
                             {" "}
                             MEMBERSHIP PERIOD (Months)
                           </th>
                           <th className="td-name">PRICE IN USD</th>
-                          <th className="td-name">PRICE IN CRYPTO</th>
                           <th className="td-status">STATUS</th>
                           {userAuthenticData?.permissionId
                             ?.coachMemberShipView ||
@@ -265,6 +263,7 @@ const CoachMembership = (props) => {
                       <tbody>
                         {coachMemberships && coachMemberships.length ? (
                           coachMemberships.map((data, index) => {
+                            {console.log(data?.period)}
                             return (
                               <tr key={index}>
                                 <td className="td-start text-center">
@@ -285,93 +284,11 @@ const CoachMembership = (props) => {
                                     }}
                                   />
                                 </td>
-                                <td className="td-tags">
-                                  {data?.businessPractise ? (
-                                    <span className="lable-info">
-                                      All-In-One Business/Practice Platform
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.onBoardTraining ? (
-                                    <span className="lable-info">
-                                      {" "}
-                                      Free onboarding training
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.healthMarketing ? (
-                                    <span className="lable-info">
-                                      Platform, marketing & health coaching
-                                      training with certification
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.personalPlatform ? (
-                                    <span className="lable-info">
-                                      Personal platform link & page (like
-                                      .healthiwealthi.io/ID)
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.onePageDashboard ? (
-                                    <span className="lable-info">
-                                      One page dashboard
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.clientAccessList ? (
-                                    <span className="lable-info">
-                                      {" "}
-                                      Client access list (with icons to chat,
-                                      talk or email each client easily){" "}
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.HipaaSocial ? (
-                                    <span className="lable-info">
-                                      {" "}
-                                      HIPAA compliant video/audio/chat (for
-                                      personal consultations){" "}
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {data?.hipaaGroupCoaching ? (
-                                    <span className="lable-info">
-                                      {" "}
-                                      HIPAA compliant group coaching
-                                      video/audio/chat (for large groups){" "}
-                                    </span>
-                                  ) : (
-                                    ""
-                                  )}
-                                  {!(
-                                    data?.["businessPractise"] ||
-                                    data?.["onBoardTraining"] ||
-                                    data?.["healthMarketing"] ||
-                                    data?.["personalPlatform"] ||
-                                    data?.["onePageDashboard"] ||
-                                    data?.["clientAccessList"] ||
-                                    data?.["HipaaSocial"] ||
-                                    data?.["hipaaGroupCoaching"]
-                                  ) && "N/A"}
-                                </td>
                                 <td className="td-periods text-center">
                                   {data?.period / 30}
                                 </td>
                                 <td className="td-periods text-center">
                                   {data?.priceInUSD ? data?.priceInUSD : "N/A"}
-                                </td>
-                                <td className="td-periods text-center">
-                                  {data?.priceInCrypto
-                                    ? data?.priceInCrypto
-                                    : "N/A"}
                                 </td>
                                 <td className="td-status text-center">
                                   <span
@@ -401,7 +318,7 @@ const CoachMembership = (props) => {
                                           variant="warning"
                                           onClick={() =>
                                             history.push(
-                                              `/coachmembership/view/${data._id}`
+                                              `/dietitianmembership/view/${data._id}`
                                             )
                                           }
                                         >
@@ -427,7 +344,7 @@ const CoachMembership = (props) => {
                                           variant="warning"
                                           onClick={() =>
                                             history.push(
-                                              `/coachmembership/edit/${data._id}`
+                                              `/dietitianmembership/edit/${data._id}`
                                             )
                                           }
                                         >
@@ -498,7 +415,7 @@ const CoachMembership = (props) => {
         <Modal show={delModalCheck} onHide={() => setDelModalCheck(false)}>
           <Modal.Header closeButton>
             <Modal.Title className="yellow-color delete-tag mb-5">
-              Are you sure you want to delete this cms?
+              Are you sure you want to delete this membership?
             </Modal.Title>
           </Modal.Header>
           <Modal.Footer className="d-flex justify-content-center">

@@ -99,6 +99,22 @@ exports.list = async (req, res, next) => {
       ])
       const totalBlogs = await Blog.countDocuments();
 
+      const blogGraph = await Blog.aggregate([
+
+        {
+          $match: { $and: [
+            { "createdAt": { $gt: new Date (startDate) } },
+            { "createdAt": { $lt: new Date (EndDate) } }
+          ]},
+        }, 
+        {
+          $group: {
+            _id: { $dateToString: { "date": "$createdAt", "format": "%m-%d-%Y"}
+            },
+            Count: { $sum: 1,},
+          }
+        },{$sort: { '_id' : 1 , "createdAt": -1} },
+      ])
 
       return res.send({
         success: true,
@@ -106,7 +122,7 @@ exports.list = async (req, res, next) => {
         data: {
           dashboardData: {
             totalBlogs,totalmember,totaladmin,totalcoach,totalCoachMemberships,totalMemberMemberships
-          },membersGraph,coachesGraph,coachMembershipsGraph, memberMembershipsGraph
+          },membersGraph,coachesGraph,coachMembershipsGraph, memberMembershipsGraph,blogGraph
         },
       });
     } catch (error) {

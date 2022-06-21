@@ -9,7 +9,7 @@ const initialState = {
     memberMembershipsGraph:null,
     memberMembershipsGraphAuth:false,
     coachMembershipsGraph:null,
-    coachMembershipsGraphAuth:false,
+    blogsGraphAuth:false,
 }
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -24,8 +24,8 @@ export default function (state = initialState, action) {
                 coachesGraphAuth:true,
                 memberMembershipsGraph:action.payload.memberMembershipsGraph,
                 memberMembershipsGraphAuth:true,
-                coachMembershipsGraph:action.payload.coachMembershipsGraph,
-                coachMembershipsGraphAuth:true,
+                blogsGraph:action.payload.blogGraph,
+                blogsGraphAuth:true,
             }
         default:
             return {
