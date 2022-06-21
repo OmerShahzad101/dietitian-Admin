@@ -3,6 +3,7 @@ import routes from '../../routes';
 
 const PermissionsArray =  () =>  {
     const routesArr = routes()
+    console.log(routesArr, "arr")
     function pathFunction() {
         const pathValue = routesArr?.map((route) => {
             if(route?.showInSideBar === true || route?.exceptional === true) {
@@ -51,7 +52,7 @@ const PermissionsArray =  () =>  {
         return newFlattenList;
     }
     const output = flattenList(filtered)
-    //console.log(`permissions array output is ==>`, output)
+    console.log(`permissions array output is ==>`, output)
     return output;
   }
   export default PermissionsArray;

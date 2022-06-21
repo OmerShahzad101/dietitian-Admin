@@ -13,44 +13,44 @@ import validator from 'validator';
 function ResetPassword(props) {
   const [cardClasses, setCardClasses] = React.useState("card-hidden");
   const [password, setPassword] = React.useState({
-    new: '',
+    newpass: '',
     confirm: '',
-    _id: window.location.pathname.split('/')[3],
-    code: window.location.pathname.split('/')[4]
+    _id: window.location.pathname.split('/')[2],
   })
+  
   const [msg, setMsg] = React.useState({
-    new: '',
+    newpass: '',
     confirm: ''
   })
 
   const Submit = (e) => {
     e.preventDefault()
-    if (!validator.isEmpty(password.new) && !validator.isEmpty(password.confirm)) {
-      if (password.new === password.confirm) {
-        if (validator.isStrongPassword(password.new)) {
-          setMsg({ new: '', confirm: '' })
-          let formData = new FormData()
-          for (const key in password)
-            formData.append(key, password[key])
-          props.resetPassword(formData)
+    if (!validator.isEmpty(password.newpass) && !validator.isEmpty(password.confirm)) {
+      if (password.newpass === password.confirm) {
+        if (validator.isStrongPassword(password.newpass)) {
+          setMsg({ newpass: '', confirm: '' })
+          // let formData = newpass FormData()
+          // for (const key in password)
+          //   formData.append(key, password[key])
+          props.resetPassword(password)
         }
         else {
-          setMsg({ new: 'Password must contain Upper Case, Lower Case, a Special Character, a Number and must be at least 8 characters in length', confirm: '' })
+          setMsg({ newpass: 'Password must contain Upper Case, Lower Case, a Special Character, a Number and must be at least 8 characters in length', confirm: '' })
         }
       }
       else {
-        setMsg({ new: 'New password & confirm password are not same.', confirm: '' })
+        setMsg({ newpass: 'New password & confirm password are not same.', confirm: '' })
       }
     }
     else {
       let passNew = '', passConf = ''
-      if (validator.isEmpty(password.new)) {
-        passNew = 'Please fill new password field.'
+      if (validator.isEmpty(password.newpass)) {
+        passNew = 'Please fill newpass password field.'
       }
       if (validator.isEmpty(password.confirm)) {
         passConf = "Please fill confirm password field."
       }
-      setMsg({ new: passNew, confirm: passConf })
+      setMsg({ newpass: passNew, confirm: passConf })
     }
   }
 
@@ -63,7 +63,7 @@ function ResetPassword(props) {
 
   React.useEffect(() => {
     if (props.admin.resetPasswordAuth) {
-      setPassword({ ...password, new: '', confirm: '' })
+      setPassword({ ...password, newpass: '', confirm: ''  })
       props.beforeAdmin()
     }
   }, [props.admin.resetPasswordAuth])
@@ -90,12 +90,12 @@ function ResetPassword(props) {
                         <label>New Password</label>
                         <Form.Control
                           placeholder="Password"
-                          value={password.new}
-                          onChange={(e) => setPassword({ ...password, new: e.target.value })}
+                          value={password.newpass}
+                          onChange={(e) => setPassword({ ...password, newpass: e.target.value })}
                           type="password"
                         ></Form.Control>
-                        <span className={msg.new ? `` : `d-none`}>
-                          <label className="pl-1 text-danger">{msg.new}</label>
+                        <span className={msg.newpass ? `` : `d-none`}>
+                          <label className="pl-1 text-danger">{msg.newpass}</label>
                         </span>
                       </Form.Group>
                       <Form.Group>

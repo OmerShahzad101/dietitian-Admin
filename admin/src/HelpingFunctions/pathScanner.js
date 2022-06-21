@@ -57,11 +57,11 @@ const PathScanner = (array) => {
             url = path.join('')
         } 
         console.log(lastindexpath,"lastindexpath")
-      console.log(secondlastindexpath,"secondlastindexpath")
-      console.log(thirdlastindexpath,"thirdlastindexpath")
-      console.log(fourthlastIndex,"fourthlastIndex")
-      console.log(fifthlastindex,"fifthlastindex")
-      console.log(url,"url")
+        console.log(secondlastindexpath,"secondlastindexpath")
+        console.log(thirdlastindexpath,"thirdlastindexpath")
+        console.log(fourthlastIndex,"fourthlastIndex")
+        console.log(fifthlastindex,"fifthlastindex")
+        console.log(url,"url")
 
     return url;
 }

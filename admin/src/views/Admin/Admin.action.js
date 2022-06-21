@@ -316,10 +316,8 @@ export const deleteAdmin = (id) => dispatch => {
 };
 
 export const forgotPassword = (body) => dispatch => {
-    console.log(body,"asodaiosdu")
     dispatch(emptyError());
-    const url = `http://localhost:8082/v1/front/auth/forgot-password`;
-
+    const url = `${ENV.url}staff/forgot-password`;
     fetch(url, {
         method: 'POST',
         headers: {
@@ -353,16 +351,19 @@ export const forgotPassword = (body) => dispatch => {
     })
 };
 
-export const resetPassword = (body, method = 'PUT') => dispatch => {
+export const resetPassword = (obj, method = 'POST') => dispatch => {
     dispatch(emptyError());
+    console.log(obj, "OJ")
     const url = `${ENV.url}staff/reset-password`;
     fetch(url, {
         method,
         headers: {
             'Authorization': ENV.Authorization,
-            'x-auth-token': ENV.x_auth_token
+            'x-auth-token': ENV.x_auth_token,
+            'content-type': 'application/json',
+
         },
-        body
+        body: JSON.stringify(obj)
     }).then(res => res.json()).then(data => {
         if (data.success) {
             toast.success(data.message)

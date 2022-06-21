@@ -312,6 +312,7 @@ const routes =  () =>  {
       component: ViewMembership,
     },
     {
+      exceptional:true,
       path: "/coachmembership/create",
       layout: Admin,
       name: "CREATE CoachMembership",
@@ -321,6 +322,7 @@ const routes =  () =>  {
       component: CoachMembershipCreate,
     },
     {
+      exceptional:true,
       path: "/coachmembership/edit/:id",
       layout: Admin,
       name: "Edit CoachMembership",
@@ -330,6 +332,7 @@ const routes =  () =>  {
       component: CoachMembershipEdit,
     },
     {
+      exceptional:true,
       path: "/coachmembership/view/:id",
       layout: Admin,
       name: "View CoachMemberships",
